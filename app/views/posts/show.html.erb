@@ -9,21 +9,11 @@
   <%= @post.text %>
 </p>
 
+<h2>Comments</h2>
+<%= render @post.comments %>
+
 <h2>Add a comment:</h2>
-<%= form_for([@post, @post.comments.build]) do |f| %>
-    <p>
-      <%= f.label :commenter %><br>
-      <%= f.text_field :commenter %>
-    </p>
+<%= render "comments/form" %>
 
-    <p>
-      <%= f.label :body %><br>
-      <%= f.text_area :body %>
-    </p>
-
-    <p>
-      <%= f.submit %>
-    </p>
-<% end %>
 <%= link_to "back", posts_path %>
-| <%= link_to 'Edit', edit_post_path(@post) %>
+<%= link_to 'Edit', edit_post_path(@post) %>
