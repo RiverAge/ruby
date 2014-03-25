@@ -26,7 +26,7 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><%= link_to "Contact", contact_path %></li>
+        <li><%= link_to "Contact", contact_path %></li>
         <li><%= link_to "Help", help_path %></li>
         <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Sign In", signin_path %></li>
@@ -37,6 +37,7 @@
 
 <div class="container">
   <%=yield %>
+  <%= debug(params) if Rails.env.development? %>
 </div>
 </body>
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
