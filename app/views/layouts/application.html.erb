@@ -2,8 +2,8 @@
 <html>
 <head>
 <title>Ruby on Rails Tutorial Sample App | <%= yield(:title) %></title>
- <%= stylesheet_link_tag "application", :media => "all" %>
 <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+  <%= stylesheet_link_tag "application", :media => "all" %>
 <!-- 可选的Bootstrap主题文件（一般不用引入） -->
 <!--  <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap-theme.min.css"> -->
   <!--[if lt IE 9]>
@@ -14,9 +14,9 @@
 <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-  <div class="navbar navbar-inverse navbar-default" role="navigation">
 
+  <div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -51,13 +51,14 @@
       </ul>
     </div><!--/.nav-collapse -->
   </div>
+  </div>
+
   <% flash.each do |key, value| %>
     <%= content_tag(:div, value, class: 'alert alert-#{key}') %>
   <% end %>
 
   <%=yield %>
   <%= debug(params) if Rails.env.development? %>
-</div>
 
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
