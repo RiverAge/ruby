@@ -2,16 +2,47 @@
 
 <div class="signup">
 <%=form_for(@user, html: {class:'form-signin'}) do |f| %>
-  <!--  <h3>Sign Up</h3> -->
-    <%= render 'shared/error_messages' %>
-    <%= f.label :name %>
-    <%= f.text_field :name, class:'form-control'%>
-    <%= f.label :email %>
-    <%= f.text_field :email, class:'form-control'%>
-    <%= f.label :password %>
-    <%= f.password_field :password, class:'form-control' %>
-    <%= f.label :password_confirmation, "Confirmation" %>
-    <%= f.password_field :password_confirmation, class:'form-control' %>
+    <% if @user.errors.get(:name) %>
+          <div class='form-group has-error'>
+              <%= f.label :name, class: 'control-label'%>
+              <%= f.text_field :name, class:'form-control'%>
+          </div>
+    <% else %>
+          <%= f.label :name %>
+          <%= f.text_field :name, class:'form-control'%>
+    <% end %>
+
+    <% if @user.errors.get(:email) %>
+          <div class='form-group has-error'>
+            <%= f.label :email, class: 'control-label'%>
+            <%= f.text_field :email, class:'form-control'%>
+          </div>
+    <% else %>
+          <%= f.label :email %>
+          <%= f.text_field :email, class:'form-control'%>
+    <% end %>
+
+    <% if @user.errors.get(:password) %>
+          <div class='form-group has-error'>
+            <%= f.label :password, class:'control-label' %>
+            <%= f.password_field :password, class:'form-control' %>
+          </div>
+    <% else %>
+          <%= f.label :password %>
+          <%= f.password_field :password, class:'form-control' %>
+    <% end %>
+
+
+    <% if @user.errors.get(:password_confirmation) %>
+          <div class='form-group has-error'>
+            <%= f.label :password_confirmation, 'Confirmation', class:'control-label' %>
+            <%= f.password_field :password_confirmation, class:'form-control' %>
+          </div>
+    <% else %>
+          <%= f.label :password_confirmation, "Confirmation" %>
+          <%= f.password_field :password_confirmation, class:'form-control' %>
+    <% end %>
+
     <%= f.submit 'Sign Up', class: 'btn btn-lg btn-primary btn-block'%>
 
 <% end %>
