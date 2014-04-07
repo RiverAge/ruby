@@ -8,7 +8,11 @@ class SessionsController < ApplicationController
 
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      sign_in user
+      if params[:session][:rememberme] == '1'
+        sign_in_with_cookie user
+      else
+        sign_in_with_session user
+      end
       redirect_to user
     else
       flash[:error] = 'Invalid email/password combination'
@@ -20,6 +24,7 @@ class SessionsController < ApplicationController
   def destroy
     self.current_user = nil
     cookies.delete(:remember_token)
+    session.delete(:user)
     redirect_to root_path
   end
 end
