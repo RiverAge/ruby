@@ -1,6 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cn">
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
   <title>Ruby on Rails Tutorial Sample App | <%= yield(:title) %></title>
   <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
   <%= stylesheet_link_tag "application", :media => "all" %>
@@ -42,7 +47,8 @@
               </ul>
             </li>
         <% else %>
-            <li><a href="#myModal" data-toggle="modal" data-target="#myModal">Log-in</a></li>
+     <!--       <li><a href="#myModal" data-toggle="modal" data-target="#myModal">Log-in</a></li>-->
+             <li><%= link_to "Sign In", signin_path %></li>
             <li><%= link_to "Sign Up", signup_path %></li>
         <% end %>
       </ul>
@@ -50,6 +56,8 @@
     <!--/.nav-collapse -->
   </div>
 </div>
+
+<!--
 <div class="modal fade" id="myModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -77,6 +85,8 @@
           </div>
             </div>
         <% end %>
+        -->
+
         <% flash.each do |key, value| %>
             <%= content_tag(:div, value, class: 'alert alert-#{key}') %>
         <% end %>
