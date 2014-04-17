@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+ # before_filter :signed_in_user, only: [:show, :edit, :update]
+  before_filter :correct_user, only: [:show, :edit, :update]
 
   def new
     @user = User.new
@@ -31,5 +33,19 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
+  private
+    def signed_in_user
+      if(!signed_in?)
+        redirect_to signin_path
+      end
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      if (!current_user?(@user))
+        redirect_to signin_path
+      end
+    end
 
 end
