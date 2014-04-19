@@ -5,6 +5,7 @@ gem 'rails', '4.0.3'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'pg'
 
 gem 'bcrypt-ruby'
 #gem 'will_paginate'
@@ -46,3 +47,4 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'rails_12factor', group: :production
