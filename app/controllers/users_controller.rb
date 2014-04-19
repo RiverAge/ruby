@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
- # before_filter :signed_in_user, only: [:show, :edit, :update]
+  before_filter :signed_in_user, only: [:index, :show, :edit, :update]
   before_filter :correct_user, only: [:show, :edit, :update]
 
   def new
     @user = User.new
+  end
+
+  def index
+    @users = User.all
   end
 
   def show
@@ -37,6 +41,7 @@ class UsersController < ApplicationController
   private
     def signed_in_user
       if(!signed_in?)
+        store_location
         redirect_to signin_path
       end
     end
@@ -44,7 +49,7 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       if (!current_user?(@user))
-        redirect_to signin_path
+        redirect_to root_path
       end
     end
 
