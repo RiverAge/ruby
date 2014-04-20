@@ -13,16 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140419082739) do
 
-  create_table "comments", force: true do |t|
-    t.string   "commenter"
-    t.text     "body"
-    t.integer  "post_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
-
   create_table "microposts", force: true do |t|
     t.string   "content"
     t.integer  "user_id"
@@ -30,12 +20,7 @@ ActiveRecord::Schema.define(version: 20140419082739) do
     t.datetime "updated_at"
   end
 
-  create_table "micrposts", force: true do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+  add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
 
   create_table "users", force: true do |t|
     t.string   "name"

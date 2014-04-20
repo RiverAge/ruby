@@ -29,30 +29,32 @@
       </button>
       <a class="navbar-brand" href="#">simple app</a>
     </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Contact", contact_path %></li>
-        <li><%= link_to "Help", help_path %></li>
-        <li><%= link_to "About", about_path %></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <% if signed_in? %>
-            <li class="dropdown">
-              <a href ="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><%= link_to 'Profile', current_user %></li>
-                <li><%= link_to 'Settings', edit_user_url(current_user) %></li>
-                <li class="divider"></li>
-                <li><%= link_to 'Switch Account', signin_path %></li>
-                <li><%= link_to 'Sign out', signout_path, method: 'delete' %></li>
-              </ul>
-            </li>
-        <% else %>
-     <!--       <li><a href="#myModal" data-toggle="modal" data-target="#myModal">Log-in</a></li>-->
-             <li><%= link_to "Sign In", signin_path %></li>
-            <li><%= link_to "Sign Up", signup_path %></li>
-        <% end %>
-      </ul>
+    <% if signed_in? %>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Contact", "#" %></li>
+            <li><%= link_to "Help", "#" %></li>
+            <li><%= link_to "About", "#" %></li>
+          </ul>
+    <% end %>
+    <ul class="nav navbar-nav navbar-right">
+      <% if signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'Profile', current_user %></li>
+              <li><%= link_to 'Settings', edit_user_url(current_user) %></li>
+              <li class="divider"></li>
+              <li><%= link_to 'Switch Account', signin_path %></li>
+              <li><%= link_to 'Sign out', signout_path, method: 'delete' %></li>
+            </ul>
+          </li>
+      <% else %>
+          <!--       <li><a href="#myModal" data-toggle="modal" data-target="#myModal">Log-in</a></li>-->
+          <li><%= link_to "Sign In", signin_path %></li>
+          <li><%= link_to "Sign Up", signup_path %></li>
+      <% end %>
+    </ul>
     </div>
     <!--/.nav-collapse -->
   </div>
@@ -67,14 +69,14 @@
         <h4 class="modal-title">Log-in</h4>
       </div>
       <div class="modal-body">
-        <%= form_for(:session, url:sessions_path, html: {class:'form_signin'}) do |f| %>
+        <%= form_for(:session, url: sessions_path, html: {class: 'form_signin'}) do |f| %>
             <div class="form-group">
-              <%= f.label :email, 'Email address'%>
+              <%= f.label :email, 'Email address' %>
               <%= f.text_field :email, class: 'form-control' %>
             </div>
             <div class="form-group">
               <%= f.label :password %>
-              <%= f.password_field :password, class:'form-control'%>
+              <%= f.password_field :password, class: 'form-control' %>
             </div>
             <p class="text-right"><a href="#">Forgot password?</a> </p>
             </div>
@@ -88,15 +90,15 @@
         <% end %>
         -->
 
-        <% flash.each do |key, value| %>
-            <%= content_tag(:div, value, class: 'alert alert-#{key}') %>
-        <% end %>
-        <%=yield %>
-        <%= debug(params) if Rails.env.development? %>
-        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-        <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
-        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-        <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
-        </body>
+<% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: 'alert alert-#{key}') %>
+<% end %>
+<%= yield %>
+<%= debug(params) if Rails.env.development? %>
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+</body>
 </html>
 
