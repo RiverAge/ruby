@@ -1,17 +1,27 @@
 <% provide(:title, 'Sign in') %>
 
+<%= form_for(:session, url: sessions_path, html: {class: 'form-signin'}) do |f| %>
+    <% if session[:login_error] %>
+        <div class='form-group has-error'>
+          <%= f.label :email %>
+          <%= f.text_field :email, class: 'form-control' %>
+        </div>
+        <div class='form-group has-error'>
+          <%= f.label :password, class: 'control-label' %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
+    <% else %>
+        <%= f.label :email %>
+        <%= f.text_field :email, class: 'form-control' %>
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+    <% end %>
 
-<%= form_for(:session, url: sessions_path, html:{class: 'form-signin'}) do |f| %>
-    <%= f.label :email %>
-    <%= f.text_field :email, class:'form-control' %>
-
-    <%= f.label :password  %>
-    <%= f.password_field :password , class:'form-control'%>
     <div class="remember">
-    <%= f.check_box :rememberme%>
-    <%= f.label :remeberme ,"Remember Me"%>
+      <%= f.check_box :rememberme %>
+      <%= f.label :remeberme, "Remember Me" %>
     </div>
-    <%= f.submit 'Sign in', class: 'btn btn-lg btn-primary btn-block'%>
+    <%= f.submit 'Sign in', class: 'btn btn-lg btn-primary btn-block' %>
 
 <% end %>
 

@@ -90,9 +90,6 @@
         <% end %>
         -->
 
-<% flash.each do |key, value| %>
-    <%= content_tag(:div, value, class: 'alert alert-#{key}') %>
-<% end %>
 <%= yield %>
 <%= debug(params) if Rails.env.development? %>
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
