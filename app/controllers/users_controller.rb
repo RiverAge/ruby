@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
     @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
     if @user.save
-      sign_in_with_cookie @user
+      sign_in_with_session @user
       redirect_to @user
     else
       render 'new'

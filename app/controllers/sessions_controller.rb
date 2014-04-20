@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
       else
         sign_in_with_session user
       end
-#      redirect_to user
       redirect_back_or user
     else
       session[:login_error] = '1'
@@ -26,6 +25,7 @@ class SessionsController < ApplicationController
   def destroy
     self.current_user = nil
     cookies.delete(:remember_token)
+    session[:remember_token] = nil
     session.delete(:user)
     redirect_to root_path
   end

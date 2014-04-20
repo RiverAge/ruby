@@ -5,7 +5,7 @@ module SessionsHelper
   end
 
   def sign_in_with_session(user)
-    session[:user] = user
+    session[:remember_token] = user.remember_token
     self.current_user = user
   end
 
@@ -22,7 +22,7 @@ module SessionsHelper
   end
 
   def current_user
-    @current_user = @current_user || session[:user] || User.find_by_remember_token(cookies[:remember_token])
+    @current_user = @current_user || User.find_by_remember_token(session[:remember_token]) || User.find_by_remember_token(cookies[:remember_token])
   end
 
   def redirect_back_or(default)
