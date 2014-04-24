@@ -4,14 +4,15 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.3'
 
 # Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
+gem 'sqlite3'
 gem 'pg'
 
 gem 'bcrypt-ruby'
-#gem 'will_paginate'
+
 gem 'kaminari'
+gem 'kaminari-bootstrap'
 #gem 'bootsrap-will_paginate'
-# Use SCSS for stylesheets
+# Use SCS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
