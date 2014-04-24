@@ -1,5 +1,8 @@
 <% provide(:title, "All Users") %>
 
+
+<div class="container">
+  <%= paginate @users%>
 <div class="table-responsive">
   <table class="table table-hover">
     <% @users.each do |user| %>
@@ -9,4 +12,7 @@
         </tr>
     <% end %>
   </table>
+
+</div>
+  <%= paginate @users%>
 </div>

@@ -2,12 +2,18 @@ class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index, :show, :edit, :update]
   before_filter :correct_user, only: [:show, :edit, :update]
 
+  def search
+
+  end
+
   def new
     @user = User.new
   end
 
   def index
-    @users = User.all
+   #@users = User.all
+  #  @users = User.paginate(page:3)
+    @users = User.all.page(params[:page]).per(3)
   end
 
   def show
@@ -52,5 +58,9 @@ class UsersController < ApplicationController
         redirect_to root_path
       end
     end
+
+  def search
+
+  end
 
 end

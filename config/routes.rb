@@ -1,6 +1,11 @@
 Guide::Application.routes.draw do
-  resources :users
+  resources :users do
+    collection do
+      get 'search'
+    end
+  end
   resources :sessions, only: [:new, :create, :destroy]
+
   get '/signup', to: 'users#new'
   get '/signin', to: 'sessions#new', via: 'get'
   get '/signout', to: 'sessions#destroy', via: 'delete'

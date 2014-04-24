@@ -9,6 +9,7 @@ gem 'pg'
 
 gem 'bcrypt-ruby'
 #gem 'will_paginate'
+gem 'kaminari'
 #gem 'bootsrap-will_paginate'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

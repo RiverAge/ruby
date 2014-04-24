@@ -27,6 +27,6 @@ class SessionsController < ApplicationController
     cookies.delete(:remember_token)
     session[:remember_token] = nil
     session.delete(:user)
-    redirect_to root_path
+    redirect_to signin_path
   end
 end
