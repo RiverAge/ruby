@@ -3,7 +3,13 @@ class UsersController < ApplicationController
   before_filter :correct_user, only: [:show, :edit, :update]
 
   def search
+    @users = User.all
+    respond_to do |format|
+      format.html
+      #format.js
+      format.json {render json:@users.as_json(only: [:id, :name, :email])}
 
+    end
   end
 
   def new
@@ -11,13 +17,17 @@ class UsersController < ApplicationController
   end
 
   def index
-   #@users = User.all
+   @users = User.all
   #  @users = User.paginate(page:3)
-    @users = User.all.page(params[:page]).per(3)
+  #  @users = User.all.page(params[:page]).per(3)
   end
 
   def show
     @user = User.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @user}
+    end
   end
 
   def create
@@ -59,8 +69,5 @@ class UsersController < ApplicationController
       end
     end
 
-  def search
-
-  end
 
 end
