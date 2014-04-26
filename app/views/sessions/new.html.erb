@@ -1,7 +1,7 @@
 <% provide(:title, 'Sign in') %>
 
 <%= form_for(:session, url: sessions_path, html: {class: 'form-signin'}) do |f| %>
-    <% if session[:login_error] %>
+    <% if flash[:login_error] %>
         <div class='form-group has-error'>
           <%= f.label :email %>
           <%= f.text_field :email, class: 'form-control' %>

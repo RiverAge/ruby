@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       end
       redirect_back_or user
     else
-      session[:login_error] = '1'
+      flash[:login_error] = '1'
 
       render 'new'
     end
