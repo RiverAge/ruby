@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      session[:login_error] = nil
+      flash[:login_error] = nil
       if params[:session][:rememberme] == '1'
         sign_in_with_cookie user
       else
