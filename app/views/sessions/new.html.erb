@@ -17,11 +17,14 @@
         <%= f.password_field :password, class: 'form-control' %>
     <% end %>
 
+    <% flash[:login_error] = nil %>
+
     <div class="remember">
       <%= f.check_box :rememberme %>
       <%= f.label :remeberme, "Remember Me" %>
     </div>
     <%= f.submit 'Sign in', class: 'btn btn-lg btn-primary btn-block' %>
+
 
 <% end %>
 
