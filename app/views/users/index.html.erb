@@ -25,8 +25,22 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
+
+        $('#userlists').dataTable({
+            "oLanguage": {
+                "sSearch":"检索:",
+                "sLengthMenu":"每页显示 _MENU_ 条记录",
+                "sZeroRecords":"空",
+                "sInfoEmpty":"无记录",
+                "sInfoFiltered":"(从 _MAX_ 条记录检索)",
+                "sInfo": "_START_ 到 _END_ 条（共 _TOTAL_ 条）"
+            }
+        });
+
         $('#userlists_length>label>select').addClass('form-control');
         $('#userlists_filter>label>input').addClass('form-control');
+
+
   });
 </script>
 
