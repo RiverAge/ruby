@@ -2,22 +2,14 @@ class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index, :show, :edit, :update]
   before_filter :correct_user, only: [:show, :edit, :update]
 
-  def search
-    @users = User.all
-    respond_to do |format|
-      format.html
-      #format.js
-      format.json {render json:@users.as_json(only: [:id, :name, :email])}
 
-    end
-  end
 
   def new
     @user = User.new
   end
 
   def index
-   @users = User.all
+    @users = User.all
   #  @users = User.paginate(page:3)
   #  @users = User.all.page(params[:page]).per(3)
   end
@@ -54,20 +46,8 @@ class UsersController < ApplicationController
     end
   end
 
-  private
-    def signed_in_user
-      if(!signed_in?)
-        store_location
-        redirect_to signin_path
-      end
-    end
 
-    def correct_user
-      @user = User.find(params[:id])
-      if (!current_user?(@user))
-        redirect_to root_path
-      end
-    end
+
 
 
 end

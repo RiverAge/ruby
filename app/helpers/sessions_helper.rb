@@ -34,4 +34,18 @@ module SessionsHelper
     session[:return_to] = request.fullpath
   end
 
+  def signed_in_user
+    if(!signed_in?)
+      store_location
+      redirect_to signin_path
+    end
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    if (!current_user?(@user))
+      redirect_to root_path
+    end
+  end
+
 end

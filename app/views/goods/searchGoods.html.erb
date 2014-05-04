@@ -1,0 +1,63 @@
+<% provide(:title, "All Goods") %>
+
+
+<div class="table-responsive">
+  <table class="table table-hover" id="goodslist">
+    <thead>
+    <tr>
+      <th>id </th>
+      <th>提单号 </th>
+      <th>品牌 </th>
+      <th>商品条码 </th>
+      <th>商品名称 </th>
+      <th>单价 </th>
+      <th>数量 </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @goods.each do |good| %>
+        <tr>
+          <td><%= good.id %> </td>
+          <td><%= good.提单号 %> </td>
+          <td><%= good.品牌 %> </td>
+          <td><%= good.商品条码 %> </td>
+          <td><%= good.商品名称 %> </td>
+          <td><%= good.单价 %> </td>
+          <td><%= good.数量 %> </td>
+        </tr>
+    <% end %>
+    </tbody>
+
+  </table>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $('#goodslist').dataTable({
+            "oLanguage": {
+                "sSearch":"检索:",
+                "sLengthMenu":"每页显示 _MENU_ 条记录",
+                "sZeroRecords":"空",
+                "sInfoEmpty":"无记录",
+                "sInfoFiltered":"(从 _MAX_ 条记录检索)",
+                "sInfo": "_START_ 到 _END_ 条（共 _TOTAL_ 条）",
+                "oPaginate": {
+                    "sFirst":"<<",
+                    "sLast":">>",
+                    "sNext":"",
+                    "sPrevious":""
+
+                }
+
+            }
+        });
+
+        $('#goodslist_length>label>select').addClass('form-control');
+        $('#goodslist_filter>label>input').addClass('form-control');
+
+
+    });
+</script>

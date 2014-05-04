@@ -1,0 +1,63 @@
+<% provide(:title, "All SpecialGoods") %>
+
+
+<div class="table-responsive">
+  <table class="table table-hover" id="specialgoodslist">
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>条码</th>
+      <th>品牌</th>
+      <th>规格型号</th>
+      <th>数量</th>
+      <th>特殊处理原因</th>
+      <th>存放区域</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @specialGoods.each do |specialgood| %>
+        <tr>
+          <td><%= specialgood.id %> </td>
+          <td><%= specialgood.条码 %> </td>
+          <td><%= specialgood.品牌 %> </td>
+          <td><%= specialgood.规格型号 %> </td>
+          <td><%= specialgood.数量 %> </td>
+          <td><%= specialgood.特殊处理原因 %> </td>
+          <td><%= specialgood.存放区域 %> </td>
+        </tr>
+    <% end %>
+    </tbody>
+
+  </table>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $('#specialgoodslist').dataTable({
+            "oLanguage": {
+                "sSearch":"检索:",
+                "sLengthMenu":"每页显示 _MENU_ 条记录",
+                "sZeroRecords":"空",
+                "sInfoEmpty":"无记录",
+                "sInfoFiltered":"(从 _MAX_ 条记录检索)",
+                "sInfo": "_START_ 到 _END_ 条（共 _TOTAL_ 条）",
+                "oPaginate": {
+                    "sFirst":"<<",
+                    "sLast":">>",
+                    "sNext":"",
+                    "sPrevious":""
+
+                }
+
+            }
+        });
+
+        $('#specialgoodslist_length>label>select').addClass('form-control');
+        $('#specialgoodslist_filter>label>input').addClass('form-control');
+
+
+    });
+</script>
