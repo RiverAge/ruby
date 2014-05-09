@@ -8,11 +8,16 @@ Guide::Application.routes.draw do
       get 'searchSpecialGoods'
     end
   end
-  resources :sessions, only: [:new, :create, :destroy]
+
+  #resources :sessions, only: [:new, :create, :destroy]
 
   get '/signup', to: 'users#new'
-  get '/signin', to: 'sessions#new', via: 'get'
-  get '/signout', to: 'sessions#destroy', via: 'delete'
+  get '/login', to: 'users#login'
+  post '/login_create_session', to: 'users#login_create_session'
+ # get '/login_create_session', to: 'users#login_create_session'
+  get '/logout', to: 'users#destroy', via: 'delete'
+ # get '/signin', to: 'sessions#new', via: 'get'
+  #get '/signout', to: 'sessions#destroy', via: 'delete'
   #get "static_pages/home"
   #get "static_pages/help"
   #get "static_pages/about"

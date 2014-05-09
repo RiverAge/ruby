@@ -46,8 +46,41 @@ class UsersController < ApplicationController
     end
   end
 
+  def login
 
+  end
 
+  def logout
+    self.current_user = nil
+    cookies.delete(:remember_token)
+    session[:remember_token] = nil
+    session.delete(:user)
+    redirect_to login_path
+  end
+
+  def login_create_session
+    user = User.find_by(email: params[:user][:email].downcase)
+    if user && user.authenticate(params[:user][:password])
+      flash[:login_error] = nil
+      if params[:user][:rememberme] == '1'
+        sign_in_with_cookie user
+      else
+        sign_in_with_session user
+      end
+      redirect_back_or user
+    else
+      flash[:login_error] = '1'
+
+      render 'login'
+    end
+  end
+
+  def destroy
+    self.current_user = nil
+    cookies.delete(:remember_token)
+    session[:remember_token] = nil
+    redirect_to login_path
+  end
 
 
 end
