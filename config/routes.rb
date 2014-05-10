@@ -1,13 +1,10 @@
 Guide::Application.routes.draw do
   resources :users
 
-  resource :goods do
-    collection do
-      get 'searchContainer'
-      get 'searchGoods'
-      get 'searchSpecialGoods'
-    end
-  end
+
+  resources :goods
+  resources :specialgoods
+  resources :containers
 
   #resources :sessions, only: [:new, :create, :destroy]
 

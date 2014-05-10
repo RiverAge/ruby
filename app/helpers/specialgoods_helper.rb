@@ -1,0 +1,2 @@
+module SpecialgoodsHelper
+end
