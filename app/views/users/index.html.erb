@@ -1,5 +1,5 @@
 <% provide(:title, "All Users") %>
-
+<% provide(:loadDataTableJavaScript, "loadDataTable") %>
 
 <div class="table-responsive">
   <table class="dataTable table table-hover" id="userlists">
@@ -24,7 +24,7 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function() {
+   /* $(document).ready(function() {
 
         var oTable = $('.dataTable').dataTable({
                 "bPaginate": true,
@@ -58,7 +58,7 @@
                 oTable.fnFilter(this.value);
             }
         });
-  }); 
+  }); */
 
 </script>
 

@@ -6,10 +6,10 @@ class GoodsController < ApplicationController
   def index
     @goods = Good.all.select(:id, :提单号, :品牌, :商品条码, :商品名称, :单价, :数量)
 
-    respond_to do |format|
-      format.html
-      format.json {render json: @goods}
-    end
+  #  respond_to do |format|
+  #    format.html
+  #    format.json {render json: @goods}
+  #  end
   end
 
 

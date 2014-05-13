@@ -1,4 +1,5 @@
 <% provide(:title, "All Goods") %>
+<% provide(:loadDataTableJavaScript, "loadDataTable") %>
 
 <h1>GOODS</h1>
 <div class="table-responsive">
@@ -15,7 +16,17 @@
     </tr>
     </thead>
     <tbody>
-
+    <% @goods.each do |good| %>
+        <tr>
+          <td><%= good.id %> </td>
+          <td><%= good.提单号 %> </td>
+          <td><%= good.品牌 %> </td>
+          <td><%= good.商品条码 %> </td>
+          <td><%= good.商品名称 %> </td>
+          <td><%= good.单价 %> </td>
+          <td><%= good.数量 %> </td>
+        </tr>
+    <% end %>
     </tbody>
 
   </table>
@@ -24,7 +35,7 @@
 
 <script type="text/javascript">
 
-    $(document).ready(function () {
+   /* $(document).ready(function () {
 
         var oTable = $('.dataTable').dataTable({
             "bPaginate": true,
@@ -59,5 +70,5 @@
             }
         });
     });
-
+*/
 </script>
