@@ -2,7 +2,7 @@
 
 <h1>GOODS</h1>
 <div class="table-responsive">
-  <table class="table table-hover" id="goodslist">
+  <table class="table table-hover" id="goodslist" data-source="<%= goods_url(format: "json") %>">
     <thead>
     <tr>
       <th>id </th>
@@ -14,19 +14,8 @@
       <th>数量 </th>
     </tr>
     </thead>
-
     <tbody>
-    <% @goods.each do |good| %>
-        <tr>
-          <td><%= good.id %> </td>
-          <td><%= good.提单号 %> </td>
-          <td><%= good.品牌 %> </td>
-          <td><%= good.商品条码 %> </td>
-          <td><%= good.商品名称 %> </td>
-          <td><%= good.单价 %> </td>
-          <td><%= good.数量 %> </td>
-        </tr>
-    <% end %>
+
     </tbody>
 
   </table>
@@ -37,6 +26,9 @@
     $(document).ready(function() {
 
         $('#goodslist').dataTable({
+            bServerSide: true,
+            sAjaxSource: $('#goodslist').data('source'),
+            sAjaxSource: "/goods.json",
             "oLanguage": {
                 "sSearch":"检索:",
                 "sLengthMenu":"每页显示 _MENU_ 条记录",
