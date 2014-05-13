@@ -2,20 +2,16 @@
 
 <h1>GOODS</h1>
 <div class="table-responsive">
-<<<<<<< HEAD
-  <table class="table table-hover" id="goodslist" data-source="<%= goods_url(format: "json") %>">
-=======
-  <table class="dataTable table table-hover" id="goodslist">
->>>>>>> 060f2c708d16eb804a61bd3fd103f06e76aa072b
+  <table class="dataTable table table-hover" id="goodslist" data-source="<%= goods_url(format: "json") %>">
     <thead>
     <tr>
-      <th>id </th>
-      <th>提单号 </th>
-      <th>品牌 </th>
-      <th>商品条码 </th>
-      <th>商品名称 </th>
-      <th>单价 </th>
-      <th>数量 </th>
+      <th>id</th>
+      <th>提单号</th>
+      <th>品牌</th>
+      <th>商品条码</th>
+      <th>商品名称</th>
+      <th>单价</th>
+      <th>数量</th>
     </tr>
     </thead>
     <tbody>
@@ -28,34 +24,27 @@
 
 <script type="text/javascript">
 
-<<<<<<< HEAD
-        $('#goodslist').dataTable({
-            bServerSide: true,
-            sAjaxSource: $('#goodslist').data('source'),
-            sAjaxSource: "/goods.json",
-=======
-  $(document).ready(function() {
+    $(document).ready(function () {
 
         var oTable = $('.dataTable').dataTable({
-                "bPaginate": true,
-                "bLengthChange": true,
-                "bFilter": true,
-                "bSort": true,
-                "bInfo": true,
-                    "bAutoWidth": true,
->>>>>>> 060f2c708d16eb804a61bd3fd103f06e76aa072b
+            "bPaginate": true,
+            "bLengthChange": true,
+            "bFilter": true,
+            "bSort": true,
+            "bInfo": true,
+            "bAutoWidth": true,
             "oLanguage": {
-                "sSearch":"检索:",
-                "sLengthMenu":"每页显示 _MENU_ 条记录",
-                "sZeroRecords":"空",
-                "sInfoEmpty":"无记录",
-                "sInfoFiltered":"(从 _MAX_ 条记录检索)",
+                "sSearch": "检索:",
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "空",
+                "sInfoEmpty": "无记录",
+                "sInfoFiltered": "(从 _MAX_ 条记录检索)",
                 "sInfo": "_START_ 到 _END_ 条（共 _TOTAL_ 条）",
                 "oPaginate": {
-                    "sFirst":"<<",
-                    "sLast":">>",
-                    "sNext":"",
-                    "sPrevious":""
+                    "sFirst": "<<",
+                    "sLast": ">>",
+                    "sNext": "",
+                    "sPrevious": ""
                 }
 
             }
@@ -64,11 +53,11 @@
         $('.dataTables_length label select').addClass('form-control');
         $('.dataTables_filter label input').addClass('form-control');
         $('.dataTables_filter label input').unbind();
-        $('.dataTables_filter label input').bind('keyup', function(e) {
+        $('.dataTables_filter label input').bind('keyup', function (e) {
             if (e.keyCode == 13) {
                 oTable.fnFilter(this.value);
             }
         });
-  }); 
+    });
 
 </script>
