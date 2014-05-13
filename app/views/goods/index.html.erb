@@ -34,9 +34,16 @@
 </div>
 
 <script type="text/javascript">
-    /* $(document).ready(function() {
 
-       $('#goodslist').dataTable({
+  $(document).ready(function() {
+
+        var oTable = $('.dataTable').dataTable({
+                "bPaginate": true,
+                "bLengthChange": true,
+                "bFilter": true,
+                "bSort": true,
+                "bInfo": true,
+                    "bAutoWidth": true,
             "oLanguage": {
                 "sSearch":"检索:",
                 "sLengthMenu":"每页显示 _MENU_ 条记录",
@@ -49,15 +56,19 @@
                     "sLast":">>",
                     "sNext":"",
                     "sPrevious":""
-
                 }
 
             }
         });
 
-        $('#goodslist_length>label>select').addClass('form-control');
-        $('#goodslist_filter>label>input').addClass('form-control');
+        $('.dataTables_length label select').addClass('form-control');
+        $('.dataTables_filter label input').addClass('form-control');
+        $('.dataTables_filter label input').unbind();
+        $('.dataTables_filter label input').bind('keyup', function(e) {
+            if (e.keyCode == 13) {
+                oTable.fnFilter(this.value);
+            }
+        });
+  }); 
 
-
-    }); */
 </script>

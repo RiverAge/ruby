@@ -25,9 +25,9 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-/*
-        var oTable = $('#userlists').dataTable({
-                                "bPaginate": true,
+
+        var oTable = $('.dataTable').dataTable({
+                "bPaginate": true,
                 "bLengthChange": true,
                 "bFilter": true,
                 "bSort": true,
@@ -45,23 +45,20 @@
                     "sLast":">>",
                     "sNext":"",
                     "sPrevious":""
-
                 }
 
             }
-        });*/
+        });
 
- //       $('#userlists_length>label>select').addClass('form-control');
-  //      $('#userlists_filter>label>input').addClass('form-control');
-   /*     $('#userlists_filter>label>input').unbind();
-        $('#userlists_filter>label>input').bind('keyup', function(e) {
+        $('.dataTables_length label select').addClass('form-control');
+        $('.dataTables_filter label input').addClass('form-control');
+        $('.dataTables_filter label input').unbind();
+        $('.dataTables_filter label input').bind('keyup', function(e) {
             if (e.keyCode == 13) {
                 oTable.fnFilter(this.value);
-            //    alert(this.value);
             }
         });
-*/
-
   }); 
+
 </script>
 
