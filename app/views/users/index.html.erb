@@ -2,7 +2,7 @@
 
 
 <div class="table-responsive">
-  <table class="table table-hover" id="userlists">
+  <table class="dataTable table table-hover" id="userlists">
     <thead>
         <tr>
           <th>UserName</th>
@@ -26,7 +26,13 @@
 <script type="text/javascript">
     $(document).ready(function() {
 
-        $('#userlists').dataTable({
+        var oTable = $('.dataTable').dataTable({
+                "bPaginate": true,
+                "bLengthChange": true,
+                "bFilter": true,
+                "bSort": true,
+                "bInfo": true,
+                    "bAutoWidth": true,
             "oLanguage": {
                 "sSearch":"检索:",
                 "sLengthMenu":"每页显示 _MENU_ 条记录",
@@ -39,16 +45,20 @@
                     "sLast":">>",
                     "sNext":"",
                     "sPrevious":""
-
                 }
 
             }
         });
 
-        $('#userlists_length>label>select').addClass('form-control');
-        $('#userlists_filter>label>input').addClass('form-control');
+        $('.dataTables_length label select').addClass('form-control');
+        $('.dataTables_filter label input').addClass('form-control');
+        $('.dataTables_filter label input').unbind();
+        $('.dataTables_filter label input').bind('keyup', function(e) {
+            if (e.keyCode == 13) {
+                oTable.fnFilter(this.value);
+            }
+        });
+  }); 
 
-
-  });
 </script>
 

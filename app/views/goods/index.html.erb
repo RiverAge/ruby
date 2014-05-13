@@ -2,7 +2,11 @@
 
 <h1>GOODS</h1>
 <div class="table-responsive">
+<<<<<<< HEAD
   <table class="table table-hover" id="goodslist" data-source="<%= goods_url(format: "json") %>">
+=======
+  <table class="dataTable table table-hover" id="goodslist">
+>>>>>>> 060f2c708d16eb804a61bd3fd103f06e76aa072b
     <thead>
     <tr>
       <th>id </th>
@@ -23,12 +27,23 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function() {
 
+<<<<<<< HEAD
         $('#goodslist').dataTable({
             bServerSide: true,
             sAjaxSource: $('#goodslist').data('source'),
             sAjaxSource: "/goods.json",
+=======
+  $(document).ready(function() {
+
+        var oTable = $('.dataTable').dataTable({
+                "bPaginate": true,
+                "bLengthChange": true,
+                "bFilter": true,
+                "bSort": true,
+                "bInfo": true,
+                    "bAutoWidth": true,
+>>>>>>> 060f2c708d16eb804a61bd3fd103f06e76aa072b
             "oLanguage": {
                 "sSearch":"检索:",
                 "sLengthMenu":"每页显示 _MENU_ 条记录",
@@ -41,15 +56,19 @@
                     "sLast":">>",
                     "sNext":"",
                     "sPrevious":""
-
                 }
 
             }
         });
 
-        $('#goodslist_length>label>select').addClass('form-control');
-        $('#goodslist_filter>label>input').addClass('form-control');
+        $('.dataTables_length label select').addClass('form-control');
+        $('.dataTables_filter label input').addClass('form-control');
+        $('.dataTables_filter label input').unbind();
+        $('.dataTables_filter label input').bind('keyup', function(e) {
+            if (e.keyCode == 13) {
+                oTable.fnFilter(this.value);
+            }
+        });
+  }); 
 
-
-    });
 </script>
