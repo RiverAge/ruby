@@ -18,7 +18,7 @@ jQuery ->
 		     	"sPrevious":""
 	 
 	$('.dataTables_filter label input').unbind();
-	$('.dataTables_filter label input').bind 'keyup', (e) =>
+	$('.dataTables_filter label input').bind 'keyup', (e) ->
 		oTable.fnFilter(this.value)	if (e.keyCode == 13) 
   
 	$('.dataTables_length label select').addClass('form-control')
