@@ -36,7 +36,7 @@ ready = function() {
         if (e.keyCode == 13) {
             oTable.fnFilter(this.value);
         }
-    });*/
+    }); */
 };
 $(document).ready(ready);
 $(document).on('page:load', ready);
