@@ -29,6 +29,8 @@ gem 'jquery-rails'
 gem 'bootstrap3-rails'
 gem 'jquery-datatables-rails'
 
+gem 'rails_serve_static_assets', group: [:production]
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
