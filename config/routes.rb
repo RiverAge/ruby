@@ -1,10 +1,13 @@
 Guide::Application.routes.draw do
-  resources :users
 
+  resources :users
+  resources :password_resets
 
   resources :goods
   resources :specialgoods
   resources :containers
+
+
 
   #resources :sessions, only: [:new, :create, :destroy]
 
