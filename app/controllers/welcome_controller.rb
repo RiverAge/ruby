@@ -15,21 +15,21 @@ class WelcomeController < ApplicationController
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.sheet(0).row(i)].transpose]
       puts row
-   #   puts spreadsheet.sheet(0).row(i)
+      #   puts spreadsheet.sheet(0).row(i)
     end
-  #  2..spreadsheet.last_row do |i|
- #     puts spreadsheet.sheet(0).row(i)
-  #  end
- #   puts spreadsheet.sheet(0).row(2)
- #   puts file.path
+    #  2..spreadsheet.last_row do |i|
+    #     puts spreadsheet.sheet(0).row(i)
+    #  end
+    #   puts spreadsheet.sheet(0).row(2)
+    #   puts file.path
 
     puts "========================================"
- # spreadsheet = Excel.new(params[:file].path)
- # header = spreadsheet.row(1)
- # (2..spreadsheet.last_row).each do |i
- #   puts spreadsheet.row(i)
- # end
-  redirect_to review_path
+    # spreadsheet = Excel.new(params[:file].path)
+    # header = spreadsheet.row(1)
+    # (2..spreadsheet.last_row).each do |i
+    #   puts spreadsheet.row(i)
+    # end
+    redirect_to review_path
   end
 
   def review

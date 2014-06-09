@@ -40,7 +40,7 @@ module UsersHelper
   end
 
   def signed_in_user
-    if(!signed_in?)
+    if (!signed_in?)
       store_location
       redirect_to signin_path
     end
