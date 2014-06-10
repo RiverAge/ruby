@@ -1,7 +1,7 @@
 <% provide(:title, 'Sign in') %>
 
 <div class="row">
-  <%= form_for(:user, url: login_create_session_path, html: {class: "form-horizontal"}) do |f| %>
+  <%= form_for(:user, url: login_create_session_path) do |f| %>
       <% if flash[:login_error] %>
           <div class="form-group has-error">
             <%= f.label :email, class: "control-label" %>
