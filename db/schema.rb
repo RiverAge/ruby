@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504033617) do
+ActiveRecord::Schema.define(version: 20140611115839) do
 
   create_table "containers", force: true do |t|
     t.string   "状态"
@@ -155,6 +155,8 @@ ActiveRecord::Schema.define(version: 20140504033617) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

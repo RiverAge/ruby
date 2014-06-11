@@ -2,7 +2,7 @@
 <h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/index.html.erb</p>
 <form class='form-inline'>
-  <%-
+  <%
       province = '440000'
       city = '440300'
       district = '440305'
@@ -15,7 +15,9 @@
     <%= select_tag :city, options_for_select(cities, city), prompt: '--城市--', class: ['city-select', 'city-city', 'form-control'] %>
     <%= select_tag :district, options_for_select(districtes, district), prompt: '--地区--', class: ['city-select', 'city-district', 'form-control'] %>
   </div>
-
+  </form>
+  <%# end %>
+<!--
   <div class='html-tag city-group form-group'>
 
     <div class='form-group'>
@@ -51,9 +53,10 @@
 
 <div class="form-group col-lg-3">
   <input type="text" class="form-control" placeholder=".col-lg-3">
-</div>
+</div>-->
 
 <!-- TEST -->
+<!--
 <form role="form">
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
@@ -76,11 +79,9 @@
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
-
+-->
 <!--Text -->
 
 <%#= form_tag import_path, multipart: true, html:{class: "signup"} do %>
 <%#= file_field_tag :file, class: "form-control"%>
 <%#= submit_tag 'import', class: 'btn btn-lg btn-primary btn-block' %>
-
-<%# end %>
