@@ -13,6 +13,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 <div class="navbar navbar-default navbar-static-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -93,7 +94,7 @@
             </div>
         <% end %>
         -->
-<div class="container">
+<div class='container'>
   <%= yield %>
 </div>
 <%= debug(params) if Rails.env.development? %>

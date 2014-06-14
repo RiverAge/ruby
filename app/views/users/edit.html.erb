@@ -1,6 +1,6 @@
 <% provide(:title, "Edit user") %>
 
-<div class="row">
+<div class="form-container">
   <%= form_for(@user) do |f| %>
       <% if @user.errors.get(:name) %>
           <div class='form-group has-error'>

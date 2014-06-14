@@ -1,6 +1,6 @@
 <% provide(:title, 'PasswordReset') %>
 
-<div class='row'>
+<div class='form-container'>
   <%= form_for @user, url:password_reset_path do |f| %>
 
       <% if @user.errors.get(:password) %>

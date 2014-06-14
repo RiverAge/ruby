@@ -1,6 +1,6 @@
 <% provide(:title, 'Sign in') %>
 
-<div class="row">
+<div class="form-container">
   <%= form_for(:user, url: login_create_session_path) do |f| %>
       <% if flash[:login_error] %>
           <div class="form-group has-error">
