@@ -66,6 +66,16 @@ Guide::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = {host: 'euky.herokuapp.com'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address:              'smtp.163.com',
+      port:                 25,
+      domain:               'euky.com',
+      user_name:            'riverage@163.com',
+      password:             'archlinux',
+      authentication:       'plain',
+      enable_starttls_auto: false
+  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
