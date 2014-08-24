@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140611115839) do
+ActiveRecord::Schema.define(version: 20140824021858) do
 
   create_table "containers", force: true do |t|
     t.string   "状态"
@@ -127,6 +127,15 @@ ActiveRecord::Schema.define(version: 20140611115839) do
   end
 
   add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
+
+  create_table "sharedfiles", force: true do |t|
+    t.string   "title"
+    t.string   "summary"
+    t.string   "category"
+    t.string   "path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "special_goods", force: true do |t|
     t.string   "条码"

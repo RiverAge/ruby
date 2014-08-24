@@ -1,0 +1,37 @@
+<% provide(:title, "Shared Files") %>
+<h3 style="text-align: center">共享文件上传</h3>
+<div class="form-container">
+  <%= form_for(:sharedfile, url: shared_files_path) do |f| %>
+     
+          <div class='form-group'>
+            <%= f.label :标题, class: 'control-label' %>
+
+            <%= f.text_field :title, class: 'form-control' %>
+
+          </div>
+ 
+          <div class="form-group">
+            <%= f.label :内容概括, class: " control-label" %>
+
+            <%= f.text_field :summary, class: 'form-control' %>
+
+          </div>
+
+          <div class='form-group'>
+            <%= f.label :类别, class: 'control-label' %>
+
+            <%= f.text_field :category, class: 'form-control' %>
+
+          </div>
+          <div class='form-group'>
+            <%= f.label :路径, class: 'control-label' %>
+
+            <%= f.text_field :path, class: 'form-control' %>
+
+          </div>
+
+        <div class="form-group">
+            <%= f.submit 'Sign Up', class: 'btn btn-default' %>
+        </div>
+    <%end%>
+</div>

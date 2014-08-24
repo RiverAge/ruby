@@ -1,0 +1,31 @@
+<% provide(:title, "Shared Files") %>
+<h3 style="text-align: center">共享文件</h3>
+<div class="table-responsive">
+  <table class="dataTable table table-hover" id="sharedfileslist">
+    <thead>
+    <tr>
+      <th>序号</th>
+      <th>标题</th>
+      <th>内容概要</th>
+      <th>类别</th>
+      <th>上传时间</th>
+      <th>资料</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @sharedfiles.each do |sharedfile| %>
+        <tr>
+          <td><%= sharedfile.id %> </td>
+          <td><%= sharedfile.title %> </td>
+          <td><%= sharedfile.summary %> </td>
+          <td><%= sharedfile.category %> </td>
+          <td><%= sharedfile.updated_at %> </td>
+          <td><a href=<%= sharedfile.path %>>下载</a></td>
+        </tr>
+    <% end %>
+    </tbody>
+
+  </table>
+<div><%= link_to "新建", new_shared_file_path %></div>
+</div>

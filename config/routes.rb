@@ -1,6 +1,7 @@
 Guide::Application.routes.draw do
 
   resources :users
+  resources :shared_files
   resources :password_resets
 
   resources :goods
