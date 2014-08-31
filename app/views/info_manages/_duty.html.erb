@@ -24,6 +24,7 @@
     <td class="date11"></td>
     <td class="date12"></td>
     <td class="date13"></td>
+
     <td class="date14"></td>
   </tr>
   <tr>
@@ -51,9 +52,13 @@
     <td class="duty18"></td>
     <td class="duty19"></td>
     <td class="duty20"></td>
+
+
+
     <td class="duty21"></td>
   </tr>
   <tr>
+
     <td class="date22"></td>
     <td class="date23"></td>
     <td class="date24"></td>
@@ -83,10 +88,16 @@
   </tr>
   <script>
     <% i = 1 %>
-    <% @duty.each do |d| %>
-    $('.date' + "<%= i %>").html("<%= d.date %>");
-    $('.duty' + "<%= i %>").html("<%= d.duty %>")
-    <% i = i + 1 %>
+
+    $('#myModalLabel').html("<%= params[:month] %>");
+    $('#id').val("<%= params[:id] %>");
+    $('#month').val("<%= params[:month] %>");
+    <% if !@duty.nil? %>
+        <% @duty.each do |d| %>
+            $('.date' + "<%= i %>").html("<%= DateTime.parse(d.date.to_s).strftime('%d') %>");
+            $('.duty' + "<%= i %>").html("<%= d.duty %>")
+            <% i = i + 1 %>
+        <% end %>
     <% end %>
   </script>
 </table>

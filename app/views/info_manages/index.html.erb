@@ -1,6 +1,8 @@
 <% provide(:title, "StuffInfo") %>
 
 <h1>Information</h1>
+<input type="hidden" id="id" value="">
+<input type="hidden" id="month" value="">
 <div class="table-responsive">
   <table class="dataTable table table-hover" id="stufflist">
     <thead>
@@ -32,7 +34,7 @@
             获奖记录
           </button>
           </td>
-          <td><%= button_to "排班", get_duty_info_manage_path(:id=>u.id), { method: :get, remote: true, "class" => "btn btn-default","data-toggle" => "modal","data-target" => "#myModal"}%>
+          <td><%= button_to "排班", get_duty_info_manage_path(:name=>u.name, :id=>u.id, :month=>Time.now.strftime('%Y%m')), { method: :get, remote: true, "class" => "btn btn-default","data-toggle" => "modal","data-target" => "#myModal"}%>
 
           </td>
         </tr>
@@ -47,18 +49,50 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel" style="text-align: center"></h4>
       </div>
       <div class="modal-body">
         </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default"><-</button>
-        <button type="button" class="btn btn-default">-></button>
+        <label class="name" style="margin-right: 400px;"></label>
+        <button type="button" id="pre" class="btn btn-default"><-</button>
+        <button type="button" id="next" class="btn btn-default">-></button>
       </div>
     </div>
   </div>
 </div>
 <script>
-  $('button').popover({html:true});
+  $(document).ready(function(){
+      $('button').popover({html:true});
+      $('#pre').click(function(){
+          var paramDate =  $('#month').val();
+          var year = paramDate.substring(0, 4);
+          var month = paramDate.substring(4, 6);
+          month = parseInt(month) - 1;
+          if (month == 0) {
+              month = 12;
+              year = parseInt(year) - 1;
+          }
+          $.ajax({
+              url:"/info_manages/" + $('#id').val() + "/get_duty?month=" + year + (Array(2).join(0) + month).slice(-2),
+              dataType: 'script'
+          });
+      });
+      $('#next').click(function(){
+          var paramDate =  $('#month').val();
+          var year = paramDate.substring(0, 4);
+          var month = paramDate.substring(4, 6);
+          month = parseInt(month) + 1;
+          if (month == 13) {
+              year = parseInt(year) + 1;
+              month = 1;
+          }
+          $.ajax({
+              url:"/info_manages/" + $('#id').val() + "/get_duty?month=" + year + (Array(2).join(0) + month).slice(-2),
+              dataType: 'script'
+          });
+      });
+  });
+
 
 </script>

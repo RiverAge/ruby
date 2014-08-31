@@ -6,7 +6,7 @@ class InfoManagesController < ApplicationController
   end
 
   def get_duty
-    @duty = User.find(params[:id]).duties;
+    @duty = User.find(params[:id]).duties.where("date like ?", params[:month] + "%");
     # @duty = "a"
 
     respond_to do |format|
