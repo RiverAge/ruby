@@ -1,0 +1,2 @@
+module InfoManageHelper
+end

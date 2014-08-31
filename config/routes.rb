@@ -8,7 +8,7 @@ Guide::Application.routes.draw do
   resources :specialgoods
   resources :containers
 
-
+  resources :info_manages
 
   #resources :sessions, only: [:new, :create, :destroy]
 

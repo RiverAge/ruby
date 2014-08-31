@@ -1,0 +1,44 @@
+<% provide(:title, "StuffInfo") %>
+
+<h1>Information</h1>
+<div class="table-responsive">
+  <table class="dataTable table table-hover" id="stufflist">
+    <thead>
+    <tr>
+      <th>姓名</th>
+      <th>性别</th>
+      <th>中心</th>
+      <th>联系电话</th>
+      <th>邮箱</th>
+      <th>QQ</th>
+      <th>获奖记录</th>
+      <th>排班</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |u| %>
+        <tr>
+          <td><%= u.name %></td>
+          <td><%= u.sex %></td>
+          <td><%= u.center %></td>
+          <td><%= u.tel %></td>
+          <td><%= u.email %></td>
+          <td><%= u.qq %></td>
+          <td><button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="
+          <% u.awards.each do |a| %>
+            <%= a.record %>
+            <br />
+          <% end %>">
+            获奖记录
+          </button>
+          </td>
+          <td>排班</td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<script>
+  $('button').popover({html:true});
+
+</script>
