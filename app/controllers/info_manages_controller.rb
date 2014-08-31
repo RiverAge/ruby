@@ -4,4 +4,15 @@ class InfoManagesController < ApplicationController
   @users = User.all;
 
   end
+
+  def get_duty
+    @duty = User.find(params[:id]).duties;
+    # @duty = "a"
+
+    respond_to do |format|
+      format.html
+      format.js
+      puts @duty.inspect
+    end
+  end
 end
