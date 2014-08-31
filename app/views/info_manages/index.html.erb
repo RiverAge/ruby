@@ -32,11 +32,31 @@
             获奖记录
           </button>
           </td>
-          <td>排班</td>
+          <td><%= button_to "排班", get_duty_info_manage_path(:id=>u.id), { method: :get, remote: true, "class" => "btn btn-default","data-toggle" => "modal","data-target" => "#myModal"}%>
+
+          </td>
         </tr>
     <% end %>
     </tbody>
   </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default"><-</button>
+        <button type="button" class="btn btn-default">-></button>
+      </div>
+    </div>
+  </div>
 </div>
 <script>
   $('button').popover({html:true});
