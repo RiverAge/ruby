@@ -1,0 +1,18 @@
+<% provide(:title, 'Welcome') %>
+<h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+<form class='form-inline'>
+  <%
+      province = '440000'
+      city = '440300'
+      district = '440305'
+      provinces = ChinaCity.list
+      cities = ChinaCity.list(province)
+      districtes = ChinaCity.list(city)
+  %>
+  <div class='rails-helper city-group'>
+    <%= select_tag :province, options_for_select(provinces, province), prompt: '--省份--', class: ['city-select', 'city-province', 'form-control'] %>
+    <%= select_tag :city, options_for_select(cities, city), prompt: '--城市--', class: ['city-select', 'city-city', 'form-control'] %>
+    <%= select_tag :district, options_for_select(districtes, district), prompt: '--地区--', class: ['city-select', 'city-district', 'form-control'] %>
+  </div>
+  </form>
