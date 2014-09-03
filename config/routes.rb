@@ -9,7 +9,7 @@ Guide::Application.routes.draw do
   resources :containers
 
   resources :info_manages do
-    member do
+    collection do
       get 'get_duty'
     end
   end
