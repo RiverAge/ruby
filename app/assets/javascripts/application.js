@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require china_city/jquery.china_city
-//= require bootstrap
 //= require jquery_ujs
+//= require bootstrap.min
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap3
 //= require turbolinks

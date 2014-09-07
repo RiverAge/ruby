@@ -15,7 +15,8 @@ $ ->
     year = date.getFullYear()
     month = frontPadZero date.getMonth() + 1, 2
     yearMonth = year + month
-    $("#myModalLabel").html yearMonth
+    $("#myModalLabel").text yearMonth
+    $("#userName").text $(this).data "name"
     $("#userId").val($(this).data "user")
     $.ajax 
       url: '/info_manages/get_duty?month=' + yearMonth + '&id=' + $(this).data('user')

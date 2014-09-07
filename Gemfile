@@ -27,7 +27,6 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-gem 'bootstrap3-rails'
 gem 'jquery-datatables-rails'
 
 #gem 'rails_serve_static_assets', group: [:production]
