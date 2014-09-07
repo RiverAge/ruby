@@ -24,16 +24,17 @@
           <td><%= u.tel %></td>
           <td><%= u.email %></td>
           <td><%= u.qq %></td>
-          <td><button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="
+          <td>
+            <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="
           <% u.awards.each do |a| %>
             <%= a.record %>
             <br />
           <% end %>">
-            获奖记录
-          </button>
+              获奖记录
+            </button>
           </td>
           <td>
-            <button class="btn btn-default duty" data-toggle="modal" data-target="#myModal"  data-user="<%= u.id %>">排班</button>
+            <button class="btn btn-default duty" data-toggle="modal" data-target="#myModal" data-user="<%= u.id %>">排班</button>
           </td>
         </tr>
     <% end %>
@@ -46,7 +47,8 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="myModalLabel" style="text-align: center"></h4>
       </div>
       <div class="modal-body">
@@ -107,7 +109,6 @@
             <td class="duty20"></td>
 
 
-
             <td class="duty21"></td>
           </tr>
           <tr>
@@ -139,8 +140,8 @@
             <td class="duty30"></td>
             <td class="duty31"></td>
           </tr>
-            </table>
-        </div>
+        </table>
+      </div>
       <div class="modal-footer">
         <label class="name" style="margin-right: 400px;"></label>
         <button type="button" id="pre" class="btn btn-default"><-</button>
@@ -148,79 +149,4 @@
       </div>
     </div>
   </div>
-  </div>
-<script>
-  $(document).ready(function(){
-
-      setTableContent = function(data) {
-          $(".modal-body td").text("");
-          if (data[0] == undefined) return;
-          for (var i = 0; i <  data.length; i++) {
-              $(".date" + (i + 1)).text(data[i].date.toString().substring(6, 8));
-              $(".duty" + (i + 1)).text(data[i].duty);
-          }
-      }
-
-      $('button').popover({html:true});
-      $('.duty').click(function() {
-          var date = new Date();
-          var year = date.getFullYear();
-          var month = (Array(2).join(0) + (date.getMonth() + 1)).slice(-2);
-          var yearMonth = year + month;
-          $('#myModalLabel').html(yearMonth);
-          $("#userId").val($(this).data('user'));
-
-//       alert(yearMonth);
-          $.ajax({
-              url:'/info_manages/get_duty?month=' + yearMonth + '&id=' + $(this).data('user'),
-              dataType: 'json',
-              success: function(data) {
-                 setTableContent(data);
-              }
-
-          }) ;
-      });
-      $('#pre').click(function(){
-          var paramDate =  $('#myModalLabel').html();
-          var year = paramDate.substring(0, 4);
-          var month = paramDate.substring(4, 6);
-          month = parseInt(month) - 1;
-          if (month == 0) {
-              month = 12;
-              year = parseInt(year) - 1;
-          }
-          var yearMonth = year + (Array(2).join(0) + month).slice(-2);
-          $('#myModalLabel').html(yearMonth);
-          var userId = $("#userId").val();
-          $.ajax({
-              url:'/info_manages/get_duty?month=' + yearMonth +'&id=' + userId,
-              dataType: 'json',
-              success: function(data) {
-                 setTableContent(data);
-              }
-          });
-      });
-      $('#next').click(function(){
-          var paramDate =  $('#myModalLabel').html();
-          var year = paramDate.substring(0, 4);
-          var month = paramDate.substring(4, 6);
-          month = parseInt(month) + 1;
-          if (month == 13) {
-              year = parseInt(year) + 1;
-              month = 1;
-          }
-          var yearMonth = year + (Array(2).join(0) + month).slice(-2);
-          $('#myModalLabel').html(yearMonth);
-          var userId = $("#userId").val();
-          $.ajax({
-              url:'/info_manages/get_duty?month=' + yearMonth +'&id=' + userId,
-              dataType: 'json',
-              success: function(data) {
-                 setTableContent(data);
-              }
-          });
-      });
-  });
-
-
-</script>
+</div>
