@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require china_city/jquery.china_city
 //= require jquery_ujs
-//= require bootstrap.min
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap3
 //= require turbolinks

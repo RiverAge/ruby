@@ -10,7 +10,7 @@ $ ->
   
   $("button").popover html: true
 
-  $(".duty").click ->
+  $(document).on "click", ".duty", (event) ->
     date = new Date()
     year = date.getFullYear()
     month = frontPadZero date.getMonth() + 1, 2
