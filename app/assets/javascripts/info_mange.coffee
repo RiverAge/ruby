@@ -22,9 +22,9 @@ $ ->
       url: '/info_manages/get_duty?month=' + yearMonth + '&id=' + $(this).data('user')
       dataType: 'json'
       success: (data) ->
-        setTableContent data 
+        setTableContent data
 
-  $("#pre").click ->
+  $(document).on "click", "#pre", (event) ->
     paramDate = $("#myModalLabel").text()
     year = paramDate[0..3]
     month = (parseInt paramDate[4..5], 10) - 1
@@ -39,8 +39,8 @@ $ ->
       dataType: 'json'
       success: (data) ->
         setTableContent data
-    
-  $("#next").click ->
+
+  $(document).on "click", "#next", (event) ->
     paramDate = $("#myModalLabel").text()
     year = paramDate[0..3]
     month = parseInt(paramDate[4..5], 10) + 1
