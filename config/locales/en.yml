@@ -22,6 +22,10 @@
 en:
   html:
     title: "Ruby on Rails Tutorial Sample App"
+  common:
+    signout: "Sign out"
+    signup: "Sign Up"
+    signin: "Sign In"
   head:
     contact: "Contact"
     help: "Help"
@@ -30,8 +34,18 @@ en:
     profile: "Profiles"
     settings: "Settings"
     switchaccount: "Switch Account"
-    signout: "Sign out"
-    signup: "Sign Up"
-    signin: "Sign In"
     operation: "Operation"
+  sharefile:
+    title: "Shared File"
+    index:
+      new: "New"
+    new:
+      head: "File Upload"
+      title: "Title"
+      summary: "Summary"
+      category: "Category"
+      path: "Path"
+
+  staffinfo:
+    title: "Saff Info"
   hello: "Hello world"

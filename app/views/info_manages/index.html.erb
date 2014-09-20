@@ -1,6 +1,5 @@
-<% provide(:title, "StuffInfo") %>
-
-<h1>Information</h1>
+<% provide(:title, (t "head.staffinfo")) %>
+<h3 style="text-align: center"><%= t "staffinfo.title" %></h3>
 <div class="table-responsive">
   <table class="dataTable table table-hover" id="stufflist">
     <thead>
@@ -25,7 +24,7 @@
           <td><%= u.email %></td>
           <td><%= u.qq %></td>
           <td>
-            <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="
+            <button type="button" class="btn btn-default award" data-container="body" data-toggle="popover" data-placement="left" data-content="
           <% u.awards.each do |a| %>
             <%= a.record %>
             <br />

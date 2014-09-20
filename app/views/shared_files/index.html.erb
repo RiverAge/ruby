@@ -1,5 +1,5 @@
-<% provide(:title, "Shared Files") %>
-<h3 style="text-align: center">共享文件</h3>
+<% provide(:title, (t "head.file")) %>
+<h3 style="text-align: center"><%= t "sharefile.title" %></h3>
 <div class="table-responsive">
   <table class="dataTable table table-hover" id="sharedfileslist">
     <thead>
@@ -27,5 +27,5 @@
     </tbody>
 
   </table>
-<div><%= link_to "新建", new_shared_file_path %></div>
+<div><%= link_to t("sharefile.index.new"), new_shared_file_path %></div>
 </div>

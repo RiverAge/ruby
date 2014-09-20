@@ -1,4 +1,6 @@
 $ ->
+  $(".award").popover html: true
+
   setTableContent = (data) ->
     $(".modal-body td").text ""
     return if not data[0]?
@@ -7,8 +9,6 @@ $ ->
       $(".date" + (i + 1)).text parseInt(d.date.toString()[6..7], 10)
     return
   frontPadZero = (num, length) -> ((Array(length).join(0)) + num)[-2..]
-  
-  $("button").popover html: true
 
   $(document).on "click", ".duty", (event) ->
     date = new Date()
@@ -18,7 +18,7 @@ $ ->
     $("#myModalLabel").text yearMonth
     $("#userName").text $(this).data "name"
     $("#userId").val($(this).data "user")
-    $.ajax 
+    $.ajax
       url: '/info_manages/get_duty?month=' + yearMonth + '&id=' + $(this).data('user')
       dataType: 'json'
       success: (data) ->
@@ -28,7 +28,7 @@ $ ->
     paramDate = $("#myModalLabel").text()
     year = paramDate[0..3]
     month = (parseInt paramDate[4..5], 10) - 1
-    if month is 0 
+    if month is 0
       month = 12
       year = (parseInt year, 10) - 1
     yearMonth = year + frontPadZero month, 2

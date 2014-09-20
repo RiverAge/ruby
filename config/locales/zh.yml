@@ -1,6 +1,10 @@
 zh:
   html:
     title: "企业资源管理"
+  common:
+    signout: "退出"
+    signin: "登录"
+    signup: "注册"
   head:
     contact: "联系"
     help: "帮助"
@@ -9,8 +13,17 @@ zh:
     profile: "我"
     settings: "设置"
     switchaccount: "切换账户"
-    signout: "退出"
-    signin: "登录"
-    signup: "注册"
     operation: "操作"
+  sharefile:
+    title: "共享文件"
+    index:
+      new: "新建"
+    new:
+      head: "共享文件上传"
+      title: "标题"
+      summary: "内容概括"
+      category: "分类"
+      path: "路径"
+  staffinfo:
+    title: "员工信息"
   hello: "Hello world"
