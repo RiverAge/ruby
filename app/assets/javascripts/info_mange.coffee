@@ -1,4 +1,6 @@
-$ ->
+#由于trubo-links原因，jQuery的ready方法不能正常调用
+#http://stackoverflow.com/questions/18770517/rails-4-how-to-use-document-ready-with-turbo-links
+$(document).on 'ready page:load', ->
   $(".award").popover html: true
 
   setTableContent = (data) ->
