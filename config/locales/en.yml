@@ -20,4 +20,18 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  html:
+    title: "Ruby on Rails Tutorial Sample App"
+  head:
+    contact: "Contact"
+    help: "Help"
+    file: "Files"
+    staffinfo: "StaffInfo"
+    profile: "Profiles"
+    settings: "Settings"
+    switchaccount: "Switch Account"
+    signout: "Sign out"
+    signup: "Sign Up"
+    signin: "Sign In"
+    operation: "Operation"
   hello: "Hello world"

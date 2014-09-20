@@ -1,0 +1,16 @@
+zh:
+  html:
+    title: "企业资源管理"
+  head:
+    contact: "联系"
+    help: "帮助"
+    file: "共享文件"
+    staffinfo: "员工信息"
+    profile: "我"
+    settings: "设置"
+    switchaccount: "切换账户"
+    signout: "退出"
+    signin: "登录"
+    signup: "注册"
+    operation: "操作"
+  hello: "Hello world"
