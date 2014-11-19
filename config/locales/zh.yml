@@ -5,6 +5,13 @@ zh:
     signout: "退出"
     signin: "登录"
     signup: "注册"
+    name: "用户"
+    password: "密码"
+    passwordconfirmation: "确认密码"
+    email: "邮箱"
+  login:
+    remember: "记住我"
+    forgotpassword: "忘记密码?"
   head:
     contact: "联系"
     help: "帮助"

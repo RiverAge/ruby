@@ -26,6 +26,13 @@ en:
     signout: "Sign out"
     signup: "Sign Up"
     signin: "Sign In"
+    name: "Name"
+    password: "Password"
+    passwordconfirmation: "Password Confirmation"
+    email: "Email"
+  login:
+    remember: "Remember Me"
+    forgotpassword: "Forgot Password?"
   head:
     contact: "Contact"
     help: "Help"
