@@ -39,7 +39,8 @@ Guide::Application.routes.draw do
  # resources :posts do
   #  resource :comments
   #end
-  root 'welcome#index'
+  root 'users#login'
+#  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -90,5 +91,5 @@ Guide::Application.routes.draw do
   #     resources :products
   #   end
 
-  mount ChinaCity::Engine => '/china_city'
+  #mount ChinaCity::Engine => '/china_city'
 end

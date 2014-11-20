@@ -1,14 +1,16 @@
-source 'https://rubygems.org'
-
+#source 'https://rubygems.org'
+source 'http://ruby.taobao.com/'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.3'
+#gem 'rails', '4.0.3'
 
+gem 'rails'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
-gem 'pg'
+#gem 'pg'
 gem 'roo'
 
-gem 'bcrypt-ruby'
+#gem 'bcrypt-ruby'
+gem 'bcrypt'
 
 gem 'kaminari'
 gem 'kaminari-bootstrap'
@@ -20,7 +22,7 @@ gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-gem 'china_city'
+#gem 'china_city'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
@@ -48,6 +50,9 @@ group :development do
   gem 'sqlite3'
   gem 'better_errors'
   gem 'binding_of_caller'
+end
+group :production do
+  gem 'pg'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
