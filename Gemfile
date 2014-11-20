@@ -6,7 +6,7 @@ source 'https://rubygems.org'
 gem 'rails'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
-#gem 'pg'
+gem 'pg'
 gem 'roo'
 
 #gem 'bcrypt-ruby'
@@ -51,9 +51,9 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
 end
-group :production do
-  gem 'pg'
-end
+#group :production do
+#  gem 'pg'
+#end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
