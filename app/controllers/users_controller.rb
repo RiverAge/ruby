@@ -26,7 +26,8 @@ class UsersController < ApplicationController
     @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
     if @user.save
       sign_in_with_session @user
-      redirect_to @user
+#      redirect_to @user
+       redirect_to @shared_files_path
     else
       render 'new'
     end
@@ -66,7 +67,8 @@ class UsersController < ApplicationController
       else
         sign_in_with_session user
       end
-      redirect_back_or user
+#      redirect_back_or user
+       redirect_back_or shared_files_path
     else
       flash[:login_error] = '1'
 
