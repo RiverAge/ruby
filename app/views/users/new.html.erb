@@ -1,6 +1,7 @@
 <% provide(:title, 'Sign up') %>
 
-<div class="form-container">
+<div class="account-wall">
+  <h2><%= (t "common.signup") %></h1>
   <%= form_for(@user) do |f| %>
       <% if @user.errors.get(:name) %>
           <div class='form-group has-error'>

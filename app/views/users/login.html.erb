@@ -1,5 +1,6 @@
 <% provide(:title, 'Sign in') %>
 <div class="account-wall">
+  <h2><%= (t "common.signin") %></h2>
   <%= form_for(:user, url: login_create_session_path) do |f| %>
     <div class="form-group">
       <%= f.label (t "common.name"), class: "control-label" %>
