@@ -5,6 +5,7 @@ class SharedFilesController < ApplicationController
 
   def new
     @sharedfile = Sharedfile.new
+    @categories = Sharedfile.select(:category).distinct
   end
 
   def create

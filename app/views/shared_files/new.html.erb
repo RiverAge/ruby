@@ -1,37 +1,28 @@
 <% provide(:title, "Shared Files") %>
-<h3 style="text-align: center"><%= t "sharefile.new.head" %></h3>
-<div class="form-container">
+<div class="account-wall">
+  <h2><%= t "sharefile.new.head" %></h2>
   <%= form_for(:sharedfile, url: shared_files_path) do |f| %>
-
-          <div class='form-group'>
-            <%= f.label (t "sharefile.new.title"), class: 'control-label' %>
-
-            <%= f.text_field :title, class: 'form-control' %>
-
-          </div>
-
-          <div class="form-group">
-            <%= f.label (t "sharefile.new.summary"), class: " control-label" %>
-
-            <%= f.text_field :summary, class: 'form-control' %>
-
-          </div>
-
-          <div class='form-group'>
-            <%= f.label (t "sharefile.new.category"), class: 'control-label' %>
-
-            <%= f.text_field :category, class: 'form-control' %>
-
-          </div>
-          <div class='form-group'>
-            <%= f.label (t "sharefile.new.path"), class: 'control-label' %>
-
-            <%= f.text_field :path, class: 'form-control' %>
-
-          </div>
-
-        <div class="form-group">
-            <%= f.submit (t "common.signup"), class: 'btn btn-default' %>
-        </div>
-    <%end%>
+    <div class='form-group'>
+      <%= f.label (t "sharefile.new.title"), class: 'control-label' %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label (t "sharefile.new.summary"), class: " control-label" %>
+      <%= f.text_area :summary,  size: "12x4", class: 'form-control' %>
+    </div>
+    <div class='form-group'>
+      <%= f.label (t "sharefile.new.category"), class: 'control-label' %>
+      <%= f.text_field :category, class: 'form-control', list: "category-list"%>
+      <datalist id="category-list">
+      <%= options_for_select(@categories.map{|c| [c.category, c.category]}) %>
+      </datalist>
+    </div>
+    <div class='form-group'>
+      <%= f.label (t "sharefile.new.path"), class: 'control-label' %>
+      <%= f.text_field :path, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.submit (t "sharefile.index.new"), class: 'btn btn-default' %>
+    </div>
+  <% end %>
 </div>
