@@ -40,14 +40,17 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(params.require(:user).permit(:name, :email, :password, :password_confirmation))
+    if @user.update_attributes(params.require(:user).permit(:email, :password, :password_confirmation))
+      #用户更新之后，由于remember_token的也随之更新了，所以用之前保存的remeber_token就找不到该用户了
+      sign_in_with_status @user, @login_status
+      redirect_to shared_files_path
     else
       render 'edit'
     end
   end
 
   def login
-
+      redirect_to shared_file_path if (!self.current_user.nil?)
   end
 
   def logout
@@ -62,13 +65,16 @@ class UsersController < ApplicationController
     user = User.find_by(email: params[:user][:name].downcase) || User.find_by(name: params[:user][:name])
     if user && user.authenticate(params[:user][:password])
       flash[:login_error] = nil
+
       if params[:user][:rememberme] == '1'
-        sign_in_with_cookie user
+        @login_status = true
       else
-        sign_in_with_session user
+        @loin_status = false
       end
+
+      sign_in_with_status user, @login_status
 #      redirect_back_or user
-       redirect_back_or shared_files_path
+      redirect_back_or shared_files_path
     else
       flash[:login_error] = '1'
 
@@ -82,6 +88,7 @@ class UsersController < ApplicationController
     session[:remember_token] = nil
     redirect_to login_path
   end
+
 
 
 end

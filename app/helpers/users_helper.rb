@@ -4,15 +4,19 @@ module UsersHelper
 
   end
 
-  def sign_in_with_cookie(user)
-    cookies.permanent[:remember_token] = user.remember_token
+  def sign_in_with_status(user, status)
+    if status
+      cookies.permanent[:remember_token] = user.remember_token
+    else
+      session[:remember_token] = user.remember_token
+    end      
     self.current_user = user
   end
 
-  def sign_in_with_session(user)
-    session[:remember_token] = user.remember_token
-    self.current_user = user
-  end
+#  def sign_in_with_session(user)
+#    session[:remember_token] = user.remember_token
+#    self.current_user = user
+#  end
 
   def signed_in?
     !current_user.nil?

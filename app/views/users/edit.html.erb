@@ -1,58 +1,46 @@
 <% provide(:title, "Edit user") %>
-
-<div class="form-container">
+<div class="account-wall">
+  <h2><%= (t "user.edit.update_profile") %></h2>
+  <div class="form-group">
+    <%= label_tag "name-label", (t "common.name"), class: " control-label" %>
+    <%= text_field_tag "name", @user.name, class: 'form-control', disabled: true %>
+  </div>
   <%= form_for(@user) do |f| %>
-      <% if @user.errors.get(:name) %>
-          <div class='form-group has-error'>
-            <%= f.label (t "common.name"), class: 'control-label' %>
-            <%= f.text_field :name, class: 'form-control' %>
-          </div>
-      <% else %>
-          <div class="form-group">
-          <%= f.label (t "common.name"), class: " control-label" %>
-          <%= f.text_field :name, class: 'form-control' %>
-          </div>
-      <% end %>
-
-      <% if @user.errors.get(:email) %>
-          <div class='form-group has-error'>
-            <%= f.label (t "common.email"), class: 'control-label' %>
-            <%= f.text_field :email, class: 'form-control' %>
-          </div>
-      <% else %>
-          <div class="form-group">
-          <%= f.label (t "common.email"), class: " control-label" %>
-          <%= f.text_field :email, class: 'form-control' %>
-              </div>
-      <% end %>
-
-      <% if @user.errors.get(:password) %>
-          <div class='form-group has-error'>
-            <%= f.label (t "common.password"), class: 'control-label' %>
-            <%= f.password_field :password, class: 'form-control' %>
-          </div>
-      <% else %>
-          <div class="form-group">
-          <%= f.label (t "common.password"), class: " control-label" %>
-          <%= f.password_field :password, class: 'form-control' %>
-              </div>
-      <% end %>
-
-
-      <% if @user.errors.get(:password_confirmation) %>
-          <div class='form-group has-error'>
-            <%= f.label :password_confirmation, (t "common.passwordconfirmation"), class: 'control-label' %>
-            <%= f.password_field :password_confirmation, class: 'form-control' %>
-          </div>
-      <% else %>
-          <div class="form-group">
-          <%= f.label :password_confirmation, (t "common.passwordconfirmation"), class: 'control-label' %>
-          <%= f.password_field :password_confirmation, class: 'form-control' %>
-              </div>
-      <% end %>
-
-      <div class="form-group">
-      <%= f.submit (t "common.signup"), class: 'btn btn-default' %>
+    <% if @user.errors.get(:email) %>
+      <div class='form-group has-error'>
+        <%= f.label (t "common.email"), class: 'control-label' %>
+        <%= f.text_field :email, class: 'form-control' %>
       </div>
+    <% else %>
+      <div class="form-group">
+        <%= f.label (t "common.email"), class: " control-label" %>
+        <%= f.text_field :email, class: 'form-control' %>
+      </div>
+    <% end %>
+    <% if @user.errors.get(:password) %>
+      <div class='form-group has-error'>
+        <%= f.label (t "common.password"), class: 'control-label' %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+    <% else %>
+      <div class="form-group">
+        <%= f.label (t "common.password"), class: " control-label" %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+    <% end %>
+    <% if @user.errors.get(:password_confirmation) %>
+      <div class='form-group has-error'>
+        <%= f.label :password_confirmation, (t "common.passwordconfirmation"), class: 'control-label' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+    <% else %>
+      <div class="form-group">
+        <%= f.label :password_confirmation, (t "common.passwordconfirmation"), class: 'control-label' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <%= f.submit (t "common.update"), class: 'btn btn-default' %>
+    </div>
   <% end %>
 </div>

@@ -30,6 +30,7 @@ en:
     password: "Password"
     passwordconfirmation: "Password Confirmation"
     email: "Email"
+    update: "update"
   login:
     remember: "Remember Me"
     forgotpassword: "Forgot Password?"
@@ -55,4 +56,7 @@ en:
 
   staffinfo:
     title: "Saff Info"
+  user:
+    edit:
+      update_profile: "Update Profile"
   hello: "Hello world"

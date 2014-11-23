@@ -12,6 +12,7 @@ zh:
     password: "密码"
     passwordconfirmation: "确认密码"
     email: "邮箱"
+    update: "更新"
   login:
     remember: "记住我"
     forgotpassword: "忘记密码?"
@@ -36,4 +37,7 @@ zh:
       path: "路径"
   staffinfo:
     title: "员工信息"
+  user:
+    edit:
+      update_profile: "修改个人信息"  
   hello: "Hello world"
