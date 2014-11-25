@@ -26,7 +26,6 @@ class UsersController < ApplicationController
     @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
     if @user.save
       sign_in_with_session @user
-#      redirect_to @user
        redirect_to @shared_files_path
     else
       render 'new'
@@ -50,7 +49,7 @@ class UsersController < ApplicationController
   end
 
   def login
-      redirect_to shared_file_path if (!self.current_user.nil?)
+      redirect_to shared_file_path, notice: "Welcome" if (!self.current_user.nil?)
   end
 
   def logout
@@ -74,7 +73,7 @@ class UsersController < ApplicationController
 
       sign_in_with_status user, @login_status
 #      redirect_back_or user
-      redirect_back_or shared_files_path
+      redirect_to shared_files_path, notice: (t "user.controller.login_success") 
     else
       flash[:login_error] = '1'
 

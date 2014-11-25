@@ -38,6 +38,8 @@ zh:
   staffinfo:
     title: "员工信息"
   user:
+    controller:
+      login_success: "登录成功"
     edit:
-      update_profile: "修改个人信息"  
+      update_profile: "修改个人信息"
   hello: "Hello world"
