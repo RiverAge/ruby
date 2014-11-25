@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   end
 
   def login
-      redirect_to shared_file_path, notice: "Welcome" if (!self.current_user.nil?)
+      redirect_to shared_files_path if (!self.current_user.nil?)
   end
 
   def logout
@@ -73,7 +73,7 @@ class UsersController < ApplicationController
 
       sign_in_with_status user, @login_status
 #      redirect_back_or user
-      redirect_to shared_files_path, notice: (t "user.controller.login_success") 
+      redirect_to shared_files_path, notice: (t "user.controller.login_success")
     else
       flash[:login_error] = '1'
 
