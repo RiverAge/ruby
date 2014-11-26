@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index, :show, :edit, :update]
   before_filter :correct_user, only: [:show, :edit, :update]
 
-
   def new
     @user = User.new
   end
@@ -53,17 +52,12 @@ class UsersController < ApplicationController
   end
 
   def logout
-    self.current_user = nil
-    cookies.delete(:remember_token)
-    session[:remember_token] = nil
-    session.delete(:user)
-    redirect_to login_path
+    clear_session
   end
 
   def login_create_session
     user = User.find_by(email: params[:user][:name].downcase) || User.find_by(name: params[:user][:name])
     if user && user.authenticate(params[:user][:password])
-      flash[:login_error] = nil
 
       if params[:user][:rememberme] == '1'
         @login_status = true
@@ -72,8 +66,8 @@ class UsersController < ApplicationController
       end
 
       sign_in_with_status user, @login_status
-#      redirect_back_or user
-      redirect_to shared_files_path, notice: (t "user.controller.login_success")
+      redirect_back_or shared_files_path
+      #redirect_to shared_files_path, notice: (t "user.controller.login_success")
     else
       flash[:login_error] = '1'
 
@@ -82,12 +76,15 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    clear_session
+  end
+
+  private
+  def clear_session
     self.current_user = nil
     cookies.delete(:remember_token)
     session[:remember_token] = nil
     redirect_to login_path
   end
-
-
 
 end
