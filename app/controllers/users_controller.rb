@@ -38,10 +38,10 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(params.require(:user).permit(:email, :password, :password_confirmation))
+    if @user.update_attributes(params.require(:user).permit(:email, :password, :password_confirmation), :skip_callbacks=> true)
       #用户更新之后，由于remember_token的也随之更新了，所以用之前保存的remeber_token就找不到该用户了
-      sign_in_with_status @user, @login_status
-      redirect_to shared_files_path
+      sign_in_with_status @user, remember_me?
+      redirect_to shared_files_path, notice: (t "user.controller.update_success")
     else
       render 'edit'
     end
@@ -58,19 +58,10 @@ class UsersController < ApplicationController
   def login_create_session
     user = User.find_by(email: params[:user][:name].downcase) || User.find_by(name: params[:user][:name])
     if user && user.authenticate(params[:user][:password])
-
-      if params[:user][:rememberme] == '1'
-        @login_status = true
-      else
-        @loin_status = false
-      end
-
-      sign_in_with_status user, @login_status
-      redirect_back_or shared_files_path
-      #redirect_to shared_files_path, notice: (t "user.controller.login_success")
+      sign_in_with_status user, (params[:user][:rememberme] == '1')
+      redirect_back_or shared_files_path, (t "user.controller.login_success")
     else
-      flash[:login_error] = '1'
-
+      flash.now[:error] = (t "user.controller.wrong_username_or_password")
       render 'login'
     end
   end

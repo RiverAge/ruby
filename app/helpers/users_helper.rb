@@ -4,12 +4,16 @@ module UsersHelper
 
   end
 
+  def remember_me?
+    cookies.permanent[:remeber_token].nil?
+  end
+
   def sign_in_with_status(user, status)
     if status
       cookies.permanent[:remember_token] = user.remember_token
     else
       session[:remember_token] = user.remember_token
-    end      
+    end
     self.current_user = user
   end
 
@@ -34,8 +38,8 @@ module UsersHelper
     @current_user = @current_user || User.find_by_remember_token(session[:remember_token]) || User.find_by_remember_token(cookies[:remember_token])
   end
 
-  def redirect_back_or(default)
-    redirect_to (session[:return_to] || default)
+  def redirect_back_or(default, notice)
+    redirect_to session[:return_to] || default, notice: notice
     session.delete(:return_to)
   end
 
