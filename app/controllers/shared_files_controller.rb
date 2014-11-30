@@ -1,6 +1,6 @@
 class SharedFilesController < ApplicationController
   def index
-    @sharedfiles = Sharedfile.all
+    @sharedfiles = Sharedfile.select(:title, :summary, :category, :updated_at, :path).all
   end
 
   def new
