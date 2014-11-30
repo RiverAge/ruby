@@ -10,9 +10,9 @@
   <table class="dataTable table table-hover" id="sharedfileslist">
     <thead>
     <tr>
+      <th>类别</th>
       <th>标题</th>
       <th>内容概要</th>
-      <th>类别</th>
       <th>上传时间</th>
       <th>资料</th>
     </tr>
@@ -21,9 +21,9 @@
     <tbody>
     <% @sharedfiles.each do |sharedfile| %>
         <tr>
+          <td><%= sharedfile.category %> </td>
           <td><%= sharedfile.title %> </td>
           <td><%= sharedfile.summary %> </td>
-          <td><%= sharedfile.category %> </td>
           <td><%= l sharedfile.updated_at %> </td>
           <td><a href=<%= sharedfile.path %>>下载</a></td>
         </tr>
