@@ -1,4 +1,4 @@
-class Sharedfile < ActiveRecord::Base
+class SharedFile < ActiveRecord::Base
   validates :title, presence: true
   validates :summary, presence: true
   validates :category, presence: true
