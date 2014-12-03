@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140831042916) do
+ActiveRecord::Schema.define(version: 20141203145008) do
 
   create_table "awards", force: true do |t|
     t.text     "record"
@@ -140,7 +140,7 @@ ActiveRecord::Schema.define(version: 20140831042916) do
 
   add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
 
-  create_table "sharedfiles", force: true do |t|
+  create_table "shared_files", force: true do |t|
     t.string   "title"
     t.string   "summary"
     t.string   "category"
@@ -168,22 +168,7 @@ ActiveRecord::Schema.define(version: 20140831042916) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "password_digest"
-    t.string   "remember_token"
-    t.boolean  "admin"
-    t.string   "password_reset_token"
-    t.datetime "password_reset_sent_at"
-    t.string   "qq"
-    t.string   "tel"
-    t.string   "sex"
-    t.string   "center"
-  end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+# Could not dump table "users" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
 end
