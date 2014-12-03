@@ -1,71 +1,23 @@
 <% provide(:title, 'Sign up') %>
 <div class="account-wall">
-  <h2><%= (t "common.signup") %></h1>
+  <h2><%= (t "common.signup") %></h2>
   <%= form_for(@user) do |f| %>
-    <% if @user.errors.get(:name) %>
-      <div class='form-group has-error'>
-        <%= f.label (t "common.name"), class: 'control-label' %>
-        <!--            <div class="col-sm-10"> -->
-        <%= f.text_field :name, class: 'form-control' %>
-        <!--</div>-->
-      </div>
-    <% else %>
       <div class="form-group">
         <%= f.label (t "common.name"), class: "control-label" %>
-        <!--<div class="col-sm-10"> -->
         <%= f.text_field :name, class: 'form-control' %>
       </div>
-      <!--</div>-->
-    <% end %>
-    <% if @user.errors.get(:email) %>
-      <div class='form-group has-error'>
-        <%= f.label (t "common.email"), class: 'control-label' %>
-        <!-- <div class="col-sm-10">-->
-        <%= f.text_field :email, class: 'form-control' %>
-        <!--</div>-->
-      </div>
-    <% else %>
       <div class="form-group">
         <%= f.label (t "common.email"), class: "control-label" %>
-        <!--<div class="col-sm-10"> -->
         <%= f.text_field :email, class: 'form-control' %>
-        <!--</div>-->
       </div>
-    <% end %>
-    <% if @user.errors.get(:password) %>
-      <div class='form-group has-error'>
-        <%= f.label (t "common.password"), class: 'control-label' %>
-        <!-- <div class="col-sm-10"> -->
-        <%= f.password_field :password, class: 'form-control' %>
-        <!--</div>-->
-      </div>
-    <% else %>
       <div class="form-group">
         <%= f.label (t "common.password"), class: "control-label" %>
-        <!--<div class="col-sm-10"> -->
         <%= f.password_field :password, class: 'form-control' %>
-        <!--</div>-->
       </div>
-    <% end %>
-    <% if @user.errors.get(:password_confirmation) %>
-      <div class='form-group has-error'>
-        <%= f.label :password_confirmation, (t "common.passwordconfirmation"), class: 'control-label' %>
-        <!--<div class="col-sm-10">-->
-        <%= f.password_field :password_confirmation, class: 'form-control' %>
-        <!--</div>-->
-      </div>
-    <% else %>
       <div class="form-group">
         <%= f.label :password_confirmation, (t "common.passwordconfirmation"), class: "control-label" %>
-        <!--<div class="col-sm-10"> -->
         <%= f.password_field :password_confirmation, class: 'form-control' %>
-        <!--</div>-->
       </div>
-    <% end %>
-    <div class="form-group">
-      <!--<div class="col-lg-offset-2 col-lg-10">-->
       <%= f.submit (t "common.signup"), class: 'btn btn-default' %>
-      <!--</div>-->
-    </div>
   <% end %>
 </div>
