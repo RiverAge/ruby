@@ -1,15 +1,15 @@
-class SharedFilesController < ApplicationController
+class shared_filesController < ApplicationController
   def index
-    @sharedfiles = Sharedfile.select(:title, :summary, :category, :updated_at, :path).all
+    @shared_files = shared_file.select(:title, :summary, :category, :updated_at, :path).all
   end
 
   def new
-    @sharedfile = Sharedfile.new
-    @categories = Sharedfile.select(:category).distinct
+    @shared_file = shared_file.new
+    @categories = shared_file.select(:category).distinct
   end
 
   def create
-    @file = Sharedfile.new(params.require(:sharedfile).permit(:title, :summary, :category, :path))
+    @file = shared_file.new(params.require(:shared_file).permit(:title, :summary, :category, :path))
     if @file.save
       redirect_to shared_files_path
     else
