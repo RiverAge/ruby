@@ -1,4 +1,4 @@
-<% provide(:title, (t "head.file")) %>
+<% provide(:title, (t "shared_file.title")) %>
 <% if notice %>
 <div class="alert alert-info alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -7,7 +7,7 @@
 <% end %>
 <h3 style="text-align: center"><%= t "sharefile.title" %></h3>
 <div class="table-responsive">
-  <table class="dataTable table table-hover" id="sharedfileslist">
+  <table class="dataTable table table-hover" id="shared_fileslist">
     <thead>
     <tr>
       <th>类别</th>
@@ -19,17 +19,17 @@
     </thead>
 
     <tbody>
-    <% @sharedfiles.each do |sharedfile| %>
+    <% @shared_files.each do |shared_file| %>
         <tr>
-          <td><%= sharedfile.category %> </td>
-          <td><%= sharedfile.title %> </td>
-          <td><%= sharedfile.summary %> </td>
-          <td><%= l sharedfile.updated_at %> </td>
-          <td><a href=<%= sharedfile.path %>>下载</a></td>
+          <td><%= shared_file.category %> </td>
+          <td><%= shared_file.title %> </td>
+          <td><%= shared_file.summary %> </td>
+          <td><%= l shared_file.updated_at %> </td>
+          <td><a href=<%= shared_file.path %>>下载</a></td>
         </tr>
     <% end %>
     </tbody>
 
   </table>
-<div><%= link_to t("sharefile.index.new"), new_shared_file_path %></div>
+<div><%= link_to t("share_file.index.new"), new_shared_file_path %></div>
 </div>
