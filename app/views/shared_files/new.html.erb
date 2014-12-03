@@ -1,28 +1,28 @@
 <% provide(:title, "Shared Files") %>
 <div class="account-wall">
-  <h2><%= t "sharefile.new.head" %></h2>
-  <%= form_for(:sharedfile, url: shared_files_path) do |f| %>
+  <h2><%= t "shared_file.new.head" %></h2>
+  <%= form_for(:shared_file, url: shared_files_path) do |f| %>
     <div class='form-group'>
-      <%= f.label (t "sharefile.new.title"), class: 'control-label' %>
+      <%= f.label (t "shared_file.new.title"), class: 'control-label' %>
       <%= f.text_field :title, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.label (t "sharefile.new.summary"), class: " control-label" %>
+      <%= f.label (t "shared_file.new.summary"), class: " control-label" %>
       <%= f.text_area :summary,  size: "12x4", class: 'form-control' %>
     </div>
     <div class='form-group'>
-      <%= f.label (t "sharefile.new.category"), class: 'control-label' %>
+      <%= f.label (t "shared_file.new.category"), class: 'control-label' %>
       <%= f.text_field :category, class: 'form-control', list: "category-list"%>
       <datalist id="category-list">
       <%= options_for_select(@categories.map{|c| [c.category, c.category]}) %>
       </datalist>
     </div>
     <div class='form-group'>
-      <%= f.label (t "sharefile.new.path"), class: 'control-label' %>
+      <%= f.label (t "shared_file.new.path"), class: 'control-label' %>
       <%= f.text_field :path, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.submit (t "sharefile.index.new"), class: 'btn btn-default' %>
+      <%= f.submit (t "shared_file.index.new"), class: 'btn btn-default' %>
     </div>
   <% end %>
 </div>

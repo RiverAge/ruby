@@ -25,7 +25,7 @@ zh:
     settings: "设置"
     switchaccount: "切换账户"
     operation: "操作"
-  sharefile:
+  shared_file:
     title: "共享文件"
     index:
       new: "新建"
@@ -59,3 +59,9 @@ zh:
             email:
               blank: "邮箱不能为空"
               invalid: "无效的邮箱"
+  views:
+    pagination:
+      previous: "&lt"
+      next: "&gt"
+      first: "&lt&lt"
+      last: "&gt&gt"
