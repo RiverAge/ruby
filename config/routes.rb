@@ -4,10 +4,6 @@ Guide::Application.routes.draw do
   resources :shared_files
   resources :password_resets
 
-  resources :goods
-  resources :specialgoods
-  resources :containers
-
   resources :info_manages do
     collection do
       get 'get_duty'
