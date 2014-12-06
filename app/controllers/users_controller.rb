@@ -22,7 +22,6 @@ class UsersController < ApplicationController
   end
 
   def create
-
     @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
     if @user.save
       sign_in_with_session @user
@@ -32,20 +31,23 @@ class UsersController < ApplicationController
       @errors = @user.errors
       render 'new'
     end
-
   end
 
   def edit
     @user = User.find(params[:id])
+    @errors = @user.errors
   end
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(params.require(:user).permit(:email, :password, :password_confirmation), :skip_callbacks=> true)
+    remember_flg = remember_me_next_time(@user)
+    if @user.update_attributes(params.require(:user).permit(:email, :password, :password_confirmation))
       #用户更新之后，由于remember_token的也随之更新了，所以用之前保存的remeber_token就找不到该用户了
-      sign_in_with_status @user, remember_me?
-      redirect_to shared_files_path, notice: (t "user.controller.update_success")
+      sign_in_with_status @user, remember_flg
+      flash[:info] = t "user.controller.update_success"
+      redirect_to shared_files_path
     else
+      @errors = @user.errors
       render 'edit'
     end
   end

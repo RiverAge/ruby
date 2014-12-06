@@ -4,8 +4,8 @@ module UsersHelper
 
   end
 
-  def remember_me?
-    cookies.permanent[:remeber_token].nil?
+  def remember_me_next_time(user)
+    cookies.permanent[:remember_token] == user.remember_token
   end
 
   def sign_in_with_status(user, status)
