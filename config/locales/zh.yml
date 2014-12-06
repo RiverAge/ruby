@@ -5,7 +5,7 @@ zh:
     formats:
       default: "%Y年%-m月%d日"
   html:
-    title: "企业资源管理"
+    title: "EUKY"
   common:
     signout: "退出"
     signin: "登录"
