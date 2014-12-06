@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @errors = @user.errors
   end
 
   def index
@@ -25,8 +26,10 @@ class UsersController < ApplicationController
     @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
     if @user.save
       sign_in_with_session @user
-       redirect_to @shared_files_path
+      flash[:info] = t "user.controller.create_success"
+      redirect_to @shared_files_path
     else
+      @errors = @user.errors
       render 'new'
     end
 
@@ -59,9 +62,10 @@ class UsersController < ApplicationController
     user = User.find_by(email: params[:user][:name].downcase) || User.find_by(name: params[:user][:name])
     if user && user.authenticate(params[:user][:password])
       sign_in_with_status user, (params[:user][:rememberme] == '1')
-      redirect_back_or shared_files_path, (t "user.controller.login_success")
+      flash[:info] = t "user.controller.login_success"
+      redirect_back_or shared_files_path
     else
-      flash.now[:error] = (t "user.controller.wrong_username_or_password")
+      flash.now[:danger] = t "user.controller.wrong_username_or_password"
       render 'login'
     end
   end

@@ -38,8 +38,8 @@ module UsersHelper
     @current_user = @current_user || User.find_by_remember_token(session[:remember_token]) || User.find_by_remember_token(cookies[:remember_token])
   end
 
-  def redirect_back_or(default, notice)
-    redirect_to session[:return_to] || default, notice: notice
+  def redirect_back_or(default)
+    redirect_to session[:return_to] || default
     session.delete(:return_to)
   end
 

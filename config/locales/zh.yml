@@ -1,4 +1,6 @@
 zh:
+  errors:
+    format: "%{message}"
   time:
     formats:
       default: "%Y年%-m月%d日"
@@ -39,6 +41,8 @@ zh:
     title: "员工信息"
   user:
     controller:
+      create_failed: "由于以下原因无法继续"
+      create_success: "用户创建成功"
       login_success: "登录成功"
       update_success: "更新成功"
       wrong_username_or_password: "用户名或密码错误"
@@ -47,6 +51,16 @@ zh:
   activerecord:
     errors:
       models:
+        shared_file:
+          attributes:
+            title:
+              blank: "标题不能为空"
+            summary:
+              blank: "内容概括不能为空"
+            category:
+              blank: "分类不能为空"
+            path:
+              blank: "路径不能为空"
         user:
           attributes:
             password:
@@ -54,6 +68,7 @@ zh:
               too_short: "密码小于6位"
             password_confirmation:
               blank: "确认密码不能为空"
+              confirmation: "密码不一致"
             name:
               blank: "用户名不能为空"
             email:

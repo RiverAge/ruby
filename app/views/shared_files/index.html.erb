@@ -1,10 +1,4 @@
 <% provide(:title, (t "shared_file.title")) %>
-<% if notice %>
-<div class="alert alert-info alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-  <%= notice %>
-</div>
-<% end %>
 <h3 style="text-align: center"><%= t "shared_file.title" %></h3>
 <div class="table-responsive">
   <table class="dataTable table table-hover" id="shared_fileslist">
