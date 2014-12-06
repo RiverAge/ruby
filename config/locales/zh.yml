@@ -28,6 +28,8 @@ zh:
     switchaccount: "切换账户"
     operation: "操作"
   shared_file:
+    controller:
+      create_success: "文件成功追加"
     title: "共享文件"
     index:
       new: "新建"
