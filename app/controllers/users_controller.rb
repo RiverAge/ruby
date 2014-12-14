@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
     if @user.save
-      sign_in_with_session @user
+      log_in @user
       flash[:info] = t "user.controller.create_success"
       redirect_to @shared_files_path
     else
