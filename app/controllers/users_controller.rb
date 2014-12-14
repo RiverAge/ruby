@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :show, :edit, :update]
-  before_filter :correct_user, only: [:show, :edit, :update]
+#  before_filter :signed_in_user, only: [:index, :show, :edit, :update]
+#  before_filter :correct_user, only: [:show, :edit, :update]
 
   def new
     @user = User.new
@@ -52,13 +52,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def login
-      redirect_to shared_files_path if (!self.current_user.nil?)
-  end
+#  def login
+#      redirect_to shared_files_path if (!self.current_user.nil?)
+#  end
 
-  def logout
-    clear_session
-  end
+#  def logout
+#    clear_session
+#  end
 
   # def login_create_session
   #   user = User.find_by(email: params[:user][:name].downcase) || User.find_by(name: params[:user][:name])
@@ -73,15 +73,15 @@ class UsersController < ApplicationController
   # end
 
   def destroy
-    clear_session
+#    clear_session
   end
 
   private
-  def clear_session
-    self.current_user = nil
-    cookies.delete(:remember_token)
-    session[:remember_token] = nil
-    redirect_to login_path
-  end
+#  def clear_session
+#    self.current_user = nil
+#    cookies.delete(:remember_token)
+#    session[:remember_token] = nil
+#    redirect_to login_path
+#  end
 
 end
