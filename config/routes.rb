@@ -4,29 +4,19 @@ Guide::Application.routes.draw do
   resources :shared_files
   resources :password_resets
 
-  resources :info_manages do
-    collection do
-      get 'get_duty'
-    end
-  end
-
-
   #resources :sessions, only: [:new, :create, :destroy]
 
   get '/signup', to: 'users#new'
-  get '/login', to: 'users#login'
-  post '/login_create_session', to: 'users#login_create_session'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
  # get '/login_create_session', to: 'users#login_create_session'
-  get '/logout', to: 'users#destroy', via: 'delete'
  # get '/signin', to: 'sessions#new', via: 'get'
   #get '/signout', to: 'sessions#destroy', via: 'delete'
   #get "static_pages/home"
   #get "static_pages/help"
   #get "static_pages/about"
   #get "static_pages/contact"
-  get "welcome/index"
-  post '/import', to: 'welcome#import'
-  get '/review', to: 'welcome#review'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -35,7 +25,7 @@ Guide::Application.routes.draw do
  # resources :posts do
   #  resource :comments
   #end
-  root 'users#login'
+  root 'sessions#new'
 #  root 'welcome#index'
 
   # Example of regular route:

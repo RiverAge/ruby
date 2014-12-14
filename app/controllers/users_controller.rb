@@ -60,17 +60,17 @@ class UsersController < ApplicationController
     clear_session
   end
 
-  def login_create_session
-    user = User.find_by(email: params[:user][:name].downcase) || User.find_by(name: params[:user][:name])
-    if user && user.authenticate(params[:user][:password])
-      sign_in_with_status user, (params[:user][:rememberme] == '1')
-      flash[:info] = t "user.controller.login_success"
-      redirect_back_or shared_files_path
-    else
-      flash.now[:danger] = t "user.controller.wrong_username_or_password"
-      render 'login'
-    end
-  end
+  # def login_create_session
+  #   user = User.find_by(email: params[:user][:name].downcase) || User.find_by(name: params[:user][:name])
+  #   if user && user.authenticate(params[:user][:password])
+  #     sign_in_with_status user, (params[:user][:rememberme] == '1')
+  #     flash[:info] = t "user.controller.login_success"
+  #     redirect_back_or shared_files_path
+  #   else
+  #     flash.now[:danger] = t "user.controller.wrong_username_or_password"
+  #     render 'login'
+  #   end
+  # end
 
   def destroy
     clear_session
